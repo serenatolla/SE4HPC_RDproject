@@ -11,96 +11,122 @@
 \author[2]{\\Luca Leonzio}
 \author[3]{\\Matteo Parimbelli}
 \author[4]{\\Serena Tolla}
-\affil[1,2,3]{Politecnico di Milano}
+\affil[1,2,3,4]{Politecnico di Milano}
 \date{\today}
+\clearpage
 
 \begin{document}
 
-\maketitle
+\newpage
 \tableofcontents
+\clearpage
 \newpage
 
-\documentclass[a4paper,12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage{amsmath, amssymb}
+% SECTION 1 - The Project and Goals
+\section{The Project and Its Goals}
+This document describes the \textbf{SustainCity} project, developed for the \textbf{Software Engineering for HPC} course.  The following is a description of the project problem and the goals to be achieved to complete the assignment. We have divided this section into three groups:
+    \begin{itemize}
+        \item The \textbf{preface} (or scenario) helps understand the environment to develop a sound software system.
 
-\title{Requirement Engineering and Design Project \\ SE4HPC_RDproject}
-\author{Serena Tolla \\ Politecnico di Milano}
-\date{\today}
+        \item The \textbf{problem posed} section includes lists to emphasize the critical points.
 
-\begin{document}
+        \item The \textbf{goals to achieve} by the assignment.
+    \end{itemize}
 
-\maketitle
-\tableofcontents
-\newpage
+\subsection{Preface}
 
-% SECTION 1 - Introduction
-\section{Introduction}
-This document describes the **SustainCity** project, developed for the **Software Engineering for HPC** course.
-The objective is to analyze urban mobility management to optimize sustainability, reducing traffic and environmental impact.
+   Two urgent global concerns are environmental sustainability and climate change; because of 
+air pollution and greenhouse gas emissions, transportation—especially urban commuting—
+ contributes to worsening those issues. 
 
-\subsection{Goals}
-The main goals of the project are:
+\subsection{Problem posed}
+The project “SustainCity” aims to create a comprehensive software system that integrates 
+the sources of information listed above, automatically applies actions of Type1, and provides 
+suggestions to the urban area managers for what concerns actions of Type2 and Type3. The 
+software should also log all actions of Type1 actuated. Moreover, it should publish for all 
+citizens the following reports:  
+• Daily reports about the average traffic flow on the main roads and about the Type1 
+actions taken.  
+• Yearly reports about the actions of Type2 and Type3 suggested and not accepted by 
+the urban area managers and those suggested and accepted. 
+
+\subsection{Project Goals}
+To reduce the impact of urban commuting, we want to keep some kinds of actions under control:
 \begin{itemize}
-    \item Monitoring traffic flows and dynamically adapting traffic light durations.
-    \item Analyzing traffic patterns to optimize urban mobility and public transportation.
-    \item Managing events that attract large crowds to minimize road congestion.
+    \item \textbf{Type1}: We want to dynamically modify the duration of traffic lights on the main roads in the city depending on the directions from where we observe the main traffic movements. For instance, if, at a certain point in time, we observe that the traffic flow on a certain road A is significantly higher than in the crossing roads, then we may decide to extend, for instance, for one hour, the duration of green lights on A (and, consequently, extend the duration of red lights in the crossing roads). 
+    \item \textbf{Type2}: We want to analyze the daily traffic patterns and identify possible optimizations in terms of one-way roads, traffic lights configuration, and public transport schedule.  
+    \item \textbf{Type3}: We want to collect information about the planning of events attracting large crowds (e.g., important sport events, concerts, fairs) and define event-specific configurations for traffic lights, roads and public transport schedules. 
+\end{itemize}
+
+
+\newpage
+
+% SECTION 2 - Requirement Analysis
+\section{Requirement Analysis}
+\subsection{Relevant Human and Non-Human Actors}
+Key actors involved in the system include:
+\begin{itemize}
+    \item \textbf{Traffic sensors} – Measure crossing times at intersections.
+    \item \textbf{Public transport microservices} – Provide transit schedules.
+    \item \textbf{Urban managers} – Implement solutions based on system suggestions.
+    \item \textbf{Information channels} – Broadcast event updates impacting mobility.
+\end{itemize}
+
+\subsection{Use Cases}
+The system manages urban mobility challenges using:
+\begin{itemize}
+    \item Dynamic traffic light adjustments.
+    \item Real-time event awareness for road optimization.
+    \item Predictive congestion analysis.
+\end{itemize}
+
+\subsection{Domain Assumptions}
+\begin{itemize}
+    \item The city collects and shares traffic data reliably.
+    \item Event organizers notify the system about major public events.
+    \item Authorities consider proposed adjustments for traffic flow improvement.
+\end{itemize}
+
+\subsection{Requirements}
+\subsubsection{Functional Requirements}
+\begin{itemize}
+    \item The system must collect and process real-time traffic data.
+    \item It should provide optimization recommendations based on traffic models.
+    \item Integration with public transport schedules must be supported.
+\end{itemize}
+
+\subsubsection{Non-Functional Requirements}
+\begin{itemize}
+    \item High availability for real-time data processing.
+    \item Low-latency response times to traffic pattern changes.
+    \item Secure access for city planners and mobility experts.
 \end{itemize}
 
 \newpage
 
-% SECTION 2 - Requirements Analysis
-\section{Requirements Analysis}
-\subsection{Actors involved}
-The key actors in the system include:
+% SECTION 3 - Design
+\section{Design}
+\subsection{General Description of the Architecture}
+The system consists of multiple components:
 \begin{itemize}
-    \item \textbf{Traffic sensors}, which measure crossing times at intersections.
-    \item \textbf{Public transportation microservices}, which provide schedules and availability.
-    \item \textbf{Information channels}, which broadcast news on urban events.
-    \item \textbf{Citizens and urban area managers}, involved in the analysis and application of solutions.
-\end{itemize}
-
-\subsection{Functional requirements}
-\begin{itemize}
-    \item The system must receive up-to-date data on traffic flows.
-    \item It must analyze patterns and suggest optimizations for road configurations.
-    \item It must notify urban managers about possible interventions.
-\end{itemize}
-
-\newpage
-
-% SECTION 3 - System Architecture
-\section{System Architecture}
-\subsection{Component Diagrams}
-The system consists of various units, including:
-\begin{itemize}
-    \item \textbf{Traffic analysis module}, which collects data and identifies patterns.
-    \item \textbf{Traffic light configuration module}, which adapts signal timing.
-    \item \textbf{Event management module}, which suggests road modifications based on events.
+    \item \textbf{Traffic Analysis Module} – Collects and processes mobility data.
+    \item \textbf{Optimization Engine} – Suggests adjustments in urban traffic.
+    \item \textbf{Event Management Interface} – Monitors large events impacting the city.
 \end{itemize}
 
 \subsection{Sequence Diagrams}
-For each key action in the system, sequence diagrams are defined to describe the interaction between components.
-
-\newpage
-
-% SECTION 4 - Implementation and Expected Results
-\section{Implementation and Expected Results}
-The implementation will be managed through a GitHub repository organized with the following folders:
+Below are three key sequence diagrams illustrating critical interactions:
 \begin{itemize}
-    \item \textbf{docs/} - Contains the LaTeX document and project specifications.
-    \item \textbf{src/} - Includes the source code written in C++.
-    \item \textbf{diagrams/} - Contains UML diagrams and other technical representations.
+    \item Traffic sensor data integration and optimization.
+    \item Dynamic adjustments in traffic signals based on congestion prediction.
+    \item Real-time notifications for urban managers during major city events.
 \end{itemize}
 
-\subsection{Evaluation Metrics}
-The success of the system will be evaluated based on the following parameters:
+\subsection{Critical Points and Design Decisions}
 \begin{itemize}
-    \item Reduction of traffic congestion.
-    \item Optimization of public transportation resources.
-    \item Acceptance of configuration proposals by urban authorities.
+    \item The real-time nature of traffic adjustments requires low-latency computation.
+    \item System must adapt dynamically to unexpected urban events.
+    \item Security measures for ensuring data integrity and privacy.
 \end{itemize}
 
 \end{document}
