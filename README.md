@@ -38,16 +38,16 @@ need to cross each intersection. This infrastructure is developed according to t
 event-based style. All sensors periodically publish the data they have acquired on a 
 message bus. 
 
- -**A microservice** offering information about public transport schedules. In particular, 
+ - **A microservice** offering information about public transport schedules. In particular, 
 this microservice is offering the following operations: 
 
     - **getScheduleByStreet**: Given the name of a street, it returns the timetable of all 
     stops present on that street. 
 
     - **getScheduleByLine**: Given the number of a specific line, it returns the complete 
-    timetable for that line.   
+    timetable for that line.
 
-• **A news channel** that transmits information about the events in the city as soon as they 
+- **A news channel** that transmits information about the events in the city as soon as they 
 are planned. 
 
 The project **“SustainCity”** aims to create a comprehensive software system that integrates 
