@@ -1,1 +1,95 @@
-doc Latex
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{authblk}
+\author[1]{Serena Tolla}
+\author[2]{Nome Collaboratore1}
+\author[3]{Nome Collaboratore2}
+\affil[1,2,3]{Politecnico di Milano}
+
+
+\title{Requirement Engineering and Design Project \\ SE4HPC_RDproject} 
+\author[1]{Giovanni La Gioia}
+\author[2]{Luca Leonzio}
+\author[3]{Matteo Parimbelli}
+\author[4]{Serena Tolla}
+\affil[1,2,3]{Politecnico di Milano}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+% SEZIONE 1 - Introduzione
+\section{Introduzione}
+Questo documento descrive il progetto \textbf{SustainCity}, sviluppato per il corso di \textit{Software Engineering for HPC}. 
+L'obiettivo è analizzare la gestione della mobilità urbana per ottimizzarla in termini di sostenibilità, riducendo traffico e impatti ambientali.
+
+\subsection{Obiettivi}
+Gli obiettivi principali del progetto sono:
+\begin{itemize}
+    \item Monitorare i flussi di traffico e adattare la durata dei semafori dinamicamente.
+    \item Analizzare schemi di traffico per ottimizzare la viabilità e i trasporti pubblici.
+    \item Gestire eventi che attirano grandi folle per minimizzare congestioni stradali.
+\end{itemize}
+
+\newpage
+
+% SEZIONE 2 - Analisi dei requisiti
+\section{Analisi dei requisiti}
+\subsection{Attori coinvolti}
+Gli attori principali nel sistema includono:
+\begin{itemize}
+    \item \textbf{Sensori del traffico}, che misurano i tempi di attraversamento agli incroci.
+    \item \textbf{Microservizi di trasporto pubblico}, che forniscono orari e disponibilità.
+    \item \textbf{Canali informativi}, che trasmettono notizie sugli eventi urbani.
+    \item \textbf{Cittadini e urban area managers}, coinvolti nell'analisi e applicazione delle soluzioni.
+\end{itemize}
+
+\subsection{Requisiti funzionali}
+\begin{itemize}
+    \item Il sistema deve ricevere dati aggiornati sui flussi di traffico.
+    \item Deve analizzare i pattern e proporre ottimizzazioni sulle configurazioni stradali.
+    \item Deve notificare i gestori urbani sui possibili interventi.
+\end{itemize}
+
+\newpage
+
+% SEZIONE 3 - Architettura del sistema
+\section{Architettura del sistema}
+\subsection{Diagrammi dei componenti}
+Il sistema è composto da diverse unità, tra cui:
+\begin{itemize}
+    \item \textbf{Modulo di analisi del traffico}, che raccoglie dati e identifica schemi.
+    \item \textbf{Modulo di configurazione semaforica}, che adatta la durata dei semafori.
+    \item \textbf{Modulo di gestione eventi}, che suggerisce modifiche viarie basate sugli eventi.
+\end{itemize}
+
+\subsection{Diagrammi di sequenza}
+Per ogni azione chiave del sistema, vengono definiti i diagrammi di sequenza che descrivono l'interazione tra le componenti.
+
+\newpage
+
+% SEZIONE 4 - Implementazione e risultati attesi
+\section{Implementazione e risultati attesi}
+L'implementazione sarà gestita attraverso una repository GitHub organizzata con le seguenti cartelle:
+\begin{itemize}
+    \item \textbf{docs/} - Contiene il documento LaTeX e le specifiche del progetto.
+    \item \textbf{src/} - Include il codice sorgente scritto in C++.
+    \item \textbf{diagrams/} - Contiene i diagrammi UML e altri schemi tecnici.
+\end{itemize}
+
+\subsection{Metriche di valutazione}
+Il successo del sistema sarà valutato in base ai seguenti parametri:
+\begin{itemize}
+    \item Riduzione della congestione stradale.
+    \item Ottimizzazione delle risorse di trasporto pubblico.
+    \item Accettazione delle proposte di configurazione da parte delle autorità urbane.
+\end{itemize}
+
+\end{document}
+
