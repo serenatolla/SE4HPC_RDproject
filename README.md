@@ -31,17 +31,21 @@ terms of one-way roads, traffic lights configuration, and public transport sched
 (e.g., important sport events, concerts, fairs) and define event-specific configurations 
 for traffic lights, roads and public transport schedules. 
 
-To accomplish these goals, we can rely on the following elements: 
+To accomplish these goals, we can rely on the following elements:
 • **A preexisting infrastructure** offering sensors that measure the number of seconds cars 
 need to cross each intersection. This infrastructure is developed according to the 
 event-based style. All sensors periodically publish the data they have acquired on a 
 message bus. 
+
 • **A microservice** offering information about public transport schedules. In particular, 
 this microservice is offering the following operations: 
+
     o **getScheduleByStreet**: Given the name of a street, it returns the timetable of all 
 stops present on that street. 
+
     o **getScheduleByLine**: Given the number of a specific line, it returns the complete 
 timetable for that line.   
+
 • **A news channel** that transmits information about the events in the city as soon as they 
 are planned. 
 
