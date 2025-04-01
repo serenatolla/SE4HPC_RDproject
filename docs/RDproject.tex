@@ -7,10 +7,10 @@
 
 
 \title{Requirement Engineering and Design Project \\ SE4HPC_RDproject} 
-\author[1]{Giovanni La Gioia}
-\author[2]{Luca Leonzio}
-\author[3]{Matteo Parimbelli}
-\author[4]{Serena Tolla}
+\author[1]{\\Giovanni La Gioia}
+\author[2]{\\Luca Leonzio}
+\author[3]{\\Matteo Parimbelli}
+\author[4]{\\Serena Tolla}
 \affil[1,2,3]{Politecnico di Milano}
 \date{\today}
 
@@ -20,72 +20,87 @@
 \tableofcontents
 \newpage
 
-% SEZIONE 1 - Introduzione
-\section{Introduzione}
-Questo documento descrive il progetto \textbf{SustainCity}, sviluppato per il corso di \textit{Software Engineering for HPC}. 
-L'obiettivo è analizzare la gestione della mobilità urbana per ottimizzarla in termini di sostenibilità, riducendo traffico e impatti ambientali.
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb}
 
-\subsection{Obiettivi}
-Gli obiettivi principali del progetto sono:
+\title{Requirement Engineering and Design Project \\ SE4HPC_RDproject}
+\author{Serena Tolla \\ Politecnico di Milano}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+% SECTION 1 - Introduction
+\section{Introduction}
+This document describes the **SustainCity** project, developed for the **Software Engineering for HPC** course.
+The objective is to analyze urban mobility management to optimize sustainability, reducing traffic and environmental impact.
+
+\subsection{Goals}
+The main goals of the project are:
 \begin{itemize}
-    \item Monitorare i flussi di traffico e adattare la durata dei semafori dinamicamente.
-    \item Analizzare schemi di traffico per ottimizzare la viabilità e i trasporti pubblici.
-    \item Gestire eventi che attirano grandi folle per minimizzare congestioni stradali.
+    \item Monitoring traffic flows and dynamically adapting traffic light durations.
+    \item Analyzing traffic patterns to optimize urban mobility and public transportation.
+    \item Managing events that attract large crowds to minimize road congestion.
 \end{itemize}
 
 \newpage
 
-% SEZIONE 2 - Analisi dei requisiti
-\section{Analisi dei requisiti}
-\subsection{Attori coinvolti}
-Gli attori principali nel sistema includono:
+% SECTION 2 - Requirements Analysis
+\section{Requirements Analysis}
+\subsection{Actors involved}
+The key actors in the system include:
 \begin{itemize}
-    \item \textbf{Sensori del traffico}, che misurano i tempi di attraversamento agli incroci.
-    \item \textbf{Microservizi di trasporto pubblico}, che forniscono orari e disponibilità.
-    \item \textbf{Canali informativi}, che trasmettono notizie sugli eventi urbani.
-    \item \textbf{Cittadini e urban area managers}, coinvolti nell'analisi e applicazione delle soluzioni.
+    \item \textbf{Traffic sensors}, which measure crossing times at intersections.
+    \item \textbf{Public transportation microservices}, which provide schedules and availability.
+    \item \textbf{Information channels}, which broadcast news on urban events.
+    \item \textbf{Citizens and urban area managers}, involved in the analysis and application of solutions.
 \end{itemize}
 
-\subsection{Requisiti funzionali}
+\subsection{Functional requirements}
 \begin{itemize}
-    \item Il sistema deve ricevere dati aggiornati sui flussi di traffico.
-    \item Deve analizzare i pattern e proporre ottimizzazioni sulle configurazioni stradali.
-    \item Deve notificare i gestori urbani sui possibili interventi.
+    \item The system must receive up-to-date data on traffic flows.
+    \item It must analyze patterns and suggest optimizations for road configurations.
+    \item It must notify urban managers about possible interventions.
 \end{itemize}
 
 \newpage
 
-% SEZIONE 3 - Architettura del sistema
-\section{Architettura del sistema}
-\subsection{Diagrammi dei componenti}
-Il sistema è composto da diverse unità, tra cui:
+% SECTION 3 - System Architecture
+\section{System Architecture}
+\subsection{Component Diagrams}
+The system consists of various units, including:
 \begin{itemize}
-    \item \textbf{Modulo di analisi del traffico}, che raccoglie dati e identifica schemi.
-    \item \textbf{Modulo di configurazione semaforica}, che adatta la durata dei semafori.
-    \item \textbf{Modulo di gestione eventi}, che suggerisce modifiche viarie basate sugli eventi.
+    \item \textbf{Traffic analysis module}, which collects data and identifies patterns.
+    \item \textbf{Traffic light configuration module}, which adapts signal timing.
+    \item \textbf{Event management module}, which suggests road modifications based on events.
 \end{itemize}
 
-\subsection{Diagrammi di sequenza}
-Per ogni azione chiave del sistema, vengono definiti i diagrammi di sequenza che descrivono l'interazione tra le componenti.
+\subsection{Sequence Diagrams}
+For each key action in the system, sequence diagrams are defined to describe the interaction between components.
 
 \newpage
 
-% SEZIONE 4 - Implementazione e risultati attesi
-\section{Implementazione e risultati attesi}
-L'implementazione sarà gestita attraverso una repository GitHub organizzata con le seguenti cartelle:
+% SECTION 4 - Implementation and Expected Results
+\section{Implementation and Expected Results}
+The implementation will be managed through a GitHub repository organized with the following folders:
 \begin{itemize}
-    \item \textbf{docs/} - Contiene il documento LaTeX e le specifiche del progetto.
-    \item \textbf{src/} - Include il codice sorgente scritto in C++.
-    \item \textbf{diagrams/} - Contiene i diagrammi UML e altri schemi tecnici.
+    \item \textbf{docs/} - Contains the LaTeX document and project specifications.
+    \item \textbf{src/} - Includes the source code written in C++.
+    \item \textbf{diagrams/} - Contains UML diagrams and other technical representations.
 \end{itemize}
 
-\subsection{Metriche di valutazione}
-Il successo del sistema sarà valutato in base ai seguenti parametri:
+\subsection{Evaluation Metrics}
+The success of the system will be evaluated based on the following parameters:
 \begin{itemize}
-    \item Riduzione della congestione stradale.
-    \item Ottimizzazione delle risorse di trasporto pubblico.
-    \item Accettazione delle proposte di configurazione da parte delle autorità urbane.
+    \item Reduction of traffic congestion.
+    \item Optimization of public transportation resources.
+    \item Acceptance of configuration proposals by urban authorities.
 \end{itemize}
 
 \end{document}
-
