@@ -6,58 +6,72 @@
 \usepackage{authblk}
 
 
-\title{Requirement Engineering and Design Project \\ SE4HPC_RDproject} 
-\author[1]{\\Giovanni La Gioia}
-\author[2]{\\Luca Leonzio}
-\author[3]{\\Matteo Parimbelli}
-\author[4]{\\Serena Tolla}
+\title{Requirement Engineering and Design Project \\ SE4HPC_RDproject}
+\vspace{3cm} % Adds space between title and authors
+
+\author[1]{Giovanni La Gioia}
+\vspace{0.5cm} % Space between authors
+\author[2]{Luca Leonzio}
+\vspace{0.5cm}
+\author[3]{Matteo Parimbelli}
+\vspace{0.5cm}
+\author[4]{Serena Tolla}
 \affil[1,2,3,4]{Politecnico di Milano}
-\date{\today}
-\clearpage
+\date{Last update: \today}
 
 \begin{document}
-
+\maketitle
 \newpage
 \tableofcontents
 \clearpage
 \newpage
 
-% SECTION 1 - The Project and Goals
+% SECTION 1 - The Project and Its Goals
 \section{The Project and Its Goals}
-This document describes the \textbf{SustainCity} project, developed for the \textbf{Software Engineering for HPC} course.  The following is a description of the project problem and the goals to be achieved to complete the assignment. We have divided this section into three groups:
-    \begin{itemize}
-        \item The \textbf{preface} (or scenario) helps understand the environment to develop a sound software system.
+This document describes the \textbf{SustainCity} project, developed as part of the \textbf{Software Engineering for HPC} course. Its objective is to tackle urban mobility challenges using \textbf{real-time traffic management, event-driven optimizations, and public transport coordination}. By leveraging \textbf{dynamic infrastructure adaptations}, the system aims to \textbf{reduce congestion, improve sustainability}, and \textbf{enhance traffic flow efficiency} in urban areas.
 
-        \item The \textbf{problem posed} section includes lists to emphasize the critical points.
-
-        \item The \textbf{goals to achieve} by the assignment.
-    \end{itemize}
-
-\subsection{Preface}
-
-   Two urgent global concerns are environmental sustainability and climate change; because of 
-air pollution and greenhouse gas emissions, transportation—especially urban commuting—
- contributes to worsening those issues. 
-
-\subsection{Problem posed}
-The project “SustainCity” aims to create a comprehensive software system that integrates 
-the sources of information listed above, automatically applies actions of Type1, and provides 
-suggestions to the urban area managers for what concerns actions of Type2 and Type3. The 
-software should also log all actions of Type1 actuated. Moreover, it should publish for all 
-citizens the following reports:  
-• Daily reports about the average traffic flow on the main roads and about the Type1 
-actions taken.  
-• Yearly reports about the actions of Type2 and Type3 suggested and not accepted by 
-the urban area managers and those suggested and accepted. 
-
-\subsection{Project Goals}
-To reduce the impact of urban commuting, we want to keep some kinds of actions under control:
+We structured this section into three key parts:
 \begin{itemize}
-    \item \textbf{Type1}: We want to dynamically modify the duration of traffic lights on the main roads in the city depending on the directions from where we observe the main traffic movements. For instance, if, at a certain point in time, we observe that the traffic flow on a certain road A is significantly higher than in the crossing roads, then we may decide to extend, for instance, for one hour, the duration of green lights on A (and, consequently, extend the duration of red lights in the crossing roads). 
-    \item \textbf{Type2}: We want to analyze the daily traffic patterns and identify possible optimizations in terms of one-way roads, traffic lights configuration, and public transport schedule.  
-    \item \textbf{Type3}: We want to collect information about the planning of events attracting large crowds (e.g., important sport events, concerts, fairs) and define event-specific configurations for traffic lights, roads and public transport schedules. 
+    \item The \textbf{Preface}, which introduces the broader environmental and urban challenges motivating this project.
+    \item The \textbf{Problem Posed}, detailing the technical and societal issues to be addressed.
+    \item The \textbf{Project Goals}, outlining the core functionalities and expected outcomes.
 \end{itemize}
 
+\subsection{Preface}
+Urban mobility inefficiencies significantly contribute to \textbf{air pollution, congestion, and greenhouse gas emissions}. Despite the presence of \textbf{public transportation}, many cities still face considerable challenges in \textbf{traffic optimization} and \textbf{event-based urban planning}.
+
+To address these concerns, the \textbf{SustainCity} project integrates \textbf{traffic monitoring, event planning, and transport analytics} into an adaptive system capable of making \textbf{data-driven recommendations} for \textbf{real-time city infrastructure improvements}.
+
+\subsection{Problem Posed}
+The \textbf{SustainCity} system aims to optimize urban traffic using three key strategies:
+
+\begin{itemize}
+    \item \textbf{Type1 Actions (Real-time Traffic Optimization)} 
+    The system dynamically adjusts traffic light durations based on live congestion data.  
+
+    \item \textbf{Type2 Actions (Long-term Traffic Pattern Analysis)}  
+    The system analyzes daily congestion patterns** to recommend permanent adjustments, such as one-way street configurations, adaptive traffic signal schedules, and public transport optimizations.
+
+    \item \textbf{Type3 Actions (Event-driven Traffic Management)}
+    SustainCity monitors city event feeds (e.g., concerts, fairs, sports games) and adjusts road and transport infrastructure dynamically to reduce congestion during high-footfall gatherings.
+\end{itemize}
+
+\noindent Additionally, SustainCity generates \textbf{reports for urban planners and citizens}:
+\begin{itemize}
+    \item \textbf{Daily Reports}: Summarizing average traffic flows and actions taken (Type1).
+    \item \textbf{Yearly Reports}: Documenting major infrastructure proposals (Type2, Type3) and their implementation status (accepted/rejected).
+\end{itemize}
+
+\subsection{Project Goals}
+To improve urban traffic management, SustainCity focuses on:
+\begin{itemize}
+    \item \textbf{Optimizing real-time traffic signals} using congestion data (Type1).
+    \item \textbf{Enhancing urban infrastructure and transport schedules} (Type2).
+    \item \textbf{Minimizing congestion during major city events} (Type3).
+    \item \textbf{Generating actionable insights for city planners and the public}.
+\end{itemize}
+
+The project is designed to be \textbf{scalable, adaptive, and fully integrated} with existing urban mobility systems. By providing \textbf{data-driven recommendations}, SustainCity aims to create \textbf{efficient, sustainable urban transport solutions}.
 
 \newpage
 
