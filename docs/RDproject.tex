@@ -5,7 +5,7 @@
 \usepackage{amsmath, amssymb}
 \usepackage{authblk}
 
-\title{Requirement Engineering and Design Project \\ SE4HPC_RDproject}
+\title{SustainCity: \\ The Future of Adaptive Urban Movement \\ v 1.0.1} % Thought of this but if u have better ideas 
 \vspace{3cm} % Adds space between title and authors
 
 \author[1]{Giovanni La Gioia}
@@ -27,28 +27,25 @@
 
 % SECTION 1 - The Project and Its Goals
 \section{The Project and Its Goals}
-This document describes the \textbf{SustainCity} project, developed as part of the \textbf{Software Engineering for HPC} course. 
-Its objective is to face urban mobility challenges using \textbf{real-time traffic management, event-driven optimizations, and public transport coordination}. 
-By leveraging \textbf{dynamic infrastructure adaptations}, the system aims to \textbf{reduce congestion, improve sustainability, and enhance traffic flow efficiency} in urban areas.
-
-We structured this first section into three key parts:
+The following describes the \textbf{SustainCity} project and its goals to be achieved, developed as part of the \textbf{Software Engineering for HPC} course. We structured this first section into three key parts:
 \begin{itemize}
     \item The \textbf{Preface}, introducing the broader environmental and urban challenges motivating this project.
     \item The \textbf{Problem Posed}, describing in detail the technical and societal issues to be addressed.
     \item The \textbf{Project Goals}, outlining the core functionalities and expected outcomes.
 \end{itemize}
 
-\subsection{Preface}
-Urban mobility inefficiencies significantly contribute to \textbf{air pollution, congestion, and greenhouse gas emissions}. Despite the presence of \textbf{public transportation}, many cities still face considerable challenges in \textbf{traffic optimization} and \textbf{event-based urban planning}.
-To address these concerns, the \textbf{SustainCity} project integrates \textbf{traffic monitoring, event planning, and transport analytics} into an adaptive system capable of making \textbf{data-driven recommendations} for \textbf{real-time city infrastructure improvements}.
+\subsection*{Preface}
+Two urgent global concerns are environmental sustainability and climate change; because of air pollution and greenhouse gas emissions, transportation - especially urban commuting - contributes to worsening those issues. 
+\\ \\ The objective of the SustainCity project is to face urban mobility challenges through real-time traffic management, event-driven optimizations, and public transport coordination. 
+\\ \\To address these concerns, the project integrates traffic monitoring, event planning, and transport analytics into an adaptive system capable of creating data-driven recommendations for real-time city infrastructure improvements.
 
-\subsection{Problem Posed}
+\subsection*{Problem Statement}
 The \textbf{SustainCity} system aims to optimize urban traffic using three key strategies:
 \begin{itemize}
     \item \textbf{Real-time Traffic Optimization (Type1 Actions)} 
-    The system dynamically adjusts traffic light durations based on live congestion data.  
+    The system continuously adapts traffic light timings using real-time congestion data to optimize flow.  
     \item \textbf{Long-term Traffic Pattern Analysis (Type2 Actions)}  
-    The system analyzes daily congestion patterns** to recommend permanent adjustments, such as one-way street configurations, adaptive traffic signal schedules, and public transport optimizations.
+    The system analyzes daily congestion patterns to recommend permanent adjustments, such as one-way street configurations, adaptive traffic signal schedules, and public transport optimizations.
     \item \textbf{Event-driven Traffic Management (Type3 Actions)}
     SustainCity monitors city event feeds (e.g., concerts, fairs, sports games) and adjusts road and transport infrastructure dynamically to reduce congestion during high-footfall gatherings.
 \end{itemize}
@@ -59,326 +56,133 @@ The \textbf{SustainCity} system aims to optimize urban traffic using three key s
     \item \textbf{Yearly Reports}: Documenting major infrastructure proposals (Type2, Type3) and their implementation status (accepted/rejected).
 \end{itemize}
 
-\subsection{Project Goals}
-To improve urban traffic management, SustainCity focuses on:
+\noindent To accomplish these goals, we can rely on the following elements: 
 \begin{itemize}
-    \item \textbf{Optimizing real-time traffic signals} using congestion data (Type1).
-    \item \textbf{Enhancing urban infrastructure and transport schedules} (Type2).
-    \item \textbf{Minimizing congestion during major city events} (Type3).
-    \item \textbf{Generating actionable insights for city planners and the public}.
+    \item A preexisting infrastructure offering sensors that measure the number of seconds cars need to cross each intersection. This infrastructure is developed according to the event-based style. All sensors periodically publish the data they have acquired on a message bus. 
+    \item A microservice offering information about public transport schedules. In particular, this microservice is offering the following operations: 
+    \begin{itemize} 
+        \item \textbf{getScheduleByStreet}: Given the name of a street, it returns the timetable of all stops present on that street. 
+        \item \textbf{getScheduleByLine}: Given the number of a specific line, it returns the complete timetable for that line.   
+    \end{itemize}
+    \item A news channel that transmits information about the events in the city as soon as they are planned.
 \end{itemize}
 
-The project is designed to be \textbf{scalable, adaptive, and fully integrated} with existing urban mobility systems. By providing \textbf{data-driven recommendations}, SustainCity aims to create \textbf{efficient, sustainable urban transport solutions}.
+\subsection*{Project Goals}
+Our main goal was developing a software system that creates efficient, sustainable urban transport solutions by providing data-driven recommendations. Therefore, the document aims to meet two objectives: 
+\begin{itemize}
+    \item Ensuring all functional and technical requirements are met.
+    \item Designing a scalable, efficient, and well-structured urban-mobility solution.
+\end{itemize}
 
 \newpage
 
 % SECTION 2 - Requirement Analysis
 \section{Requirement Analysis}
-
 \subsection{Relevant Human and Non-Human Actors}
-
-\subsection{Use Cases}
-
-
-\subsection{Domain Assumptions}
-
-
-\subsection{Requirements}
-\subsubsection{Functional Requirements}
-
-\subsubsection{Non-Functional Requirements}
-
-% SECTION 3 - Design
-\section{Design}
-\subsection{General Description of the Architecture}
-
-\subsection{Sequence Diagrams}
-
-\subsection{Critical Points and Design Decisions}
-
-\newpage 
-
-
-
-\subtitle{Type 2}
-
-\section{Requirement Analysis}
-\subsection{Relevant Human and Non-Human Actors}
-
+Let's begin by examining the \textit{human actors} involved in this system first:
 \begin{itemize}
-    \item \textbf{Urban Area Manager}:
-Responsible for managing urban infrastructure and ensuring efficient traffic flow, this actor evaluates suggestions provided by the system. The manager holds authority to approve or reject recommendations for changing traffic configurations, public transport scheduling, and road directions. Their decision-making directly influences the effectiveness and practicality of proposed optimizations.
-
-\item \textbf{Traffic Management System}:
-Acts as the core analytical component by collecting, processing, and interpreting data from various sources, such as traffic sensors. This actor continuously monitors daily traffic flows, identifies congestion hotspots, and detects recurring traffic patterns that could benefit from optimization.
-
-\item \textbf{Public Transport Microservice}:
-Provides comprehensive and real-time public transport schedules. By integrating this microservice, the system can propose modifications to transport schedules, aligning them with identified traffic patterns to optimize commuter convenience and reduce congestion.
-
-\item \textbf{Citizens}:
-Although not directly interacting with the internal workings of the system, citizens are vital end-users who indirectly benefit from the optimizations. They receive publicly accessible reports about implemented and proposed changes, leading to improved commuting experiences through reduced congestion and more predictable traffic flows.
-
-\item \textbf{Sensors}:
-Physical devices deployed at intersections and major roadways, these actors gather real-time data about traffic conditions. Accurate and timely sensor data is foundational, enabling the system to reliably analyze traffic patterns and propose meaningful optimizations.
+    \item \textbf{Urban Area Manager} (Type2, Type3): Responsible for overseeing urban infrastructure, evaluating traffic optimization proposals, and approving or rejecting recommendations related to traffic configurations, transport scheduling, and road management. Their decisions directly impact the effectiveness of SustainCity’s long-term strategies.
+    \item \textbf{City Planners and Officials} (Type2, Type3): Work alongside \textbf{Urban Area Managers} to assess traffic data reports, evaluate permanent infrastructure adaptations, and implement policy changes based on recommendations. They ensure that adjustments align with environmental and urban regulations.
+    \item \textbf{Citizens}(Type2, Type3): Although notactively involved in the system’s technical workings, they are end-users who benefit from improved traffic conditions, congestion reduction, and optimized public transport schedules. They receive notifications through city mobility platforms, public dashboards, transport apps, and digital road signs.
 \end{itemize}
-
-
-\subsection{Use Cases}
-
+\noindent On the other hand, there are also several \textit{non-human actors} needed to ensure the system operates efficiently and delivers accurate data-driven insights:
 \begin{itemize}
-    \item \textbf{Traffic Pattern Analysis}:
-The system continuously processes daily traffic data gathered from city-wide sensors to detect patterns and identify areas frequently experiencing congestion or inefficient traffic flow. By understanding traffic behaviors over time, it can pinpoint critical issues, such as bottlenecks caused by suboptimal traffic light timing, inefficient road layouts, or misaligned public transport schedules. Recognizing these patterns is essential for accurately suggesting targeted interventions.
-
-\item \textbf{Suggest Optimizations}:
-Utilizing insights gained from the traffic pattern analysis, the system generates actionable recommendations aimed at reducing congestion and improving overall commuting efficiency. These recommendations include adjusting the duration and synchronization of traffic lights, revising street directions (e.g., converting roads into one-way streets), and modifying public transportation schedules to better align with commuter patterns. These suggestions are then systematically communicated to urban area managers for review.
-
-\item \textbf{Review and Apply Changes}:
-In this use case, urban area managers critically examine the optimization suggestions provided by the system. They evaluate the practicality, potential impact, and feasibility of each recommendation before making decisions. Approved suggestions are subsequently implemented within the city’s infrastructure, directly influencing urban commuting conditions. Suggestions deemed impractical or undesirable are rejected, with the decision outcomes logged and documented for reporting purposes.
+    \item \textbf{Traffic Management System} (Type2, Type3): Acts as the core analytical component by collecting, processing, and interpreting data from various sources, such as traffic sensors. This actor continuously monitors daily traffic flows, identifies congestion hotspots, and detects recurring traffic patterns that could benefit from optimization.
+    \item \textbf{Public Transport Microservice} (Type2, Type3): Provides comprehensive and real-time public transport schedules. By integrating this microservice, the system can propose modifications to transport schedules, aligning them with identified traffic patterns to optimize commuter convenience and reduce congestion.
+    \item \textbf{Sensors} (Type2, Type3): Physical devices deployed at intersections and major roadways, these actors gather real-time data about traffic conditions. Accurate and timely sensor data is foundational, enabling the system to reliably analyze traffic patterns and propose meaningful optimizations.
+    \item \textbf{Event Monitoring System} (Type3): Detects and transmits event schedules (concerts, sports games, fairs), triggering event-driven traffic adjustments and real-time mobility recommendations. It collaborates closely with the \textbf{Traffic Management System} and \textbf{Public Transport Microservice} to proactively mitigate congestion.
+    \item \textbf{Notification System} (Type3): A critical component for disseminating structured reports and real-time alerts to all relevant actors. It ensures that traffic management decisions — whether real-time, event-driven, or long-term —are properly communicated to all of the relevant stakeholders.
 \end{itemize}
-
-\subsection{Domain Assumptions}
-
-The following assumptions establish foundational conditions upon which the system's functionality depends:
-
-\begin{itmeize}
-
-\item \textbf{Reliable Sensor Infrastructure}:
-It is assumed that sensors for measuring traffic flow are consistently operational, providing accurate and timely data. Reliable sensor data is fundamental to correctly identifying daily traffic patterns and making valid optimization suggestions.
-
-\item \textbf{Availability of Public Transport Data}:
-The system presumes continuous access to an up-to-date public transport microservice. Accurate schedules and real-time information from this microservice are critical for suggesting effective adjustments to public transportation based on identified traffic patterns.
-
-\item \textbf{Authority of Urban Area Managers}:
-It is assumed that urban area managers hold exclusive authority for approving or rejecting optimization suggestions. The system does not autonomously apply changes (other than traffic lights for Type 1 actions), ensuring that any significant modifications are subject to human oversight and final decision-making.
-
-\item \textbf{Stable Communication Infrastructure}:
-The system assumes stable and continuous network connectivity between all components (traffic management system, sensors, microservices, and urban area manager interfaces), facilitating efficient data transfer and timely decision-making.
-
-\end{itmeize}
-
-\subsection{Requirements}
-\subsubsection{Functional Requirements}
-
-These are mandatory actions the system must fulfill to meet its objectives:
-
-\begin{itemize}
-    
-\item Traffic Data Analysis:
-The system must continuously collect and analyze traffic sensor data to detect daily traffic patterns and congestion areas.
-
-\item Optimization Recommendation Generation:
-Based on traffic pattern analysis, the system must automatically propose targeted optimization actions. These include adjusting traffic light timing, redefining road directions (such as converting roads to one-way), and modifying public transportation schedules.
-
-\item Suggestion Management:
-The system must provide urban area managers with an intuitive interface to view, review, and respond (approve/reject) to proposed optimizations.
-
-\item Reporting:
-The system must regularly generate detailed reports documenting both proposed and implemented optimizations, including decisions made by urban area managers.
-
-\end{itemize}
-
-\subsubsection{Non-Functional Requirements}
-\begin{itemize}
-These constraints or conditions influence how the system performs its functions:
-
-\item Real-Time Responsiveness:
-The system must rapidly analyze traffic data and provide optimization suggestions without significant delays, enabling timely decisions by urban managers.
-
-\item Scalability:
-It must efficiently handle the large volume of data collected from numerous traffic sensors distributed across an urban area, ensuring consistent performance as city infrastructure grows.
-
-\item High Availability and Reliability:
-The system must be operational continuously (with minimal downtime) to support uninterrupted urban traffic management.
-
-\item User-Friendly Interface:
-The interface used by urban area managers to review suggestions must be straightforward, intuitive, and accessible, facilitating quick and informed decision-making.
-
-\item Security and Data Integrity:
-The system must secure sensitive traffic data and ensure that data used for analyses and recommendations remain accurate, protected from unauthorized access or manipulation.
-    
-\end{itemize}
-
-\section{Design}
-
-\subsection{General Description of the Architecture}
-
-The system's architecture follows a microservice-oriented and event-driven approach, which allows scalability, modularity, and responsiveness—essential qualities for handling complex urban traffic patterns.
-
-Components:
-
-\begin{itemize}
-    \item \textbf{Sensor Data Collector}
-
-Subscribes to sensor-generated events from the message bus.
-
-Collects and preprocesses real-time traffic data to provide clean input to the Traffic Analyzer.
-
-\item \textbf{Traffic Analyzer}
-
-Receives processed sensor data.
-
-Analyzes and detects congestion patterns and inefficiencies in daily traffic flow.
-
-\item Optimization Engine
-
-Receives analysis results from the Traffic Analyzer.
-
-Generates targeted optimization recommendations for road directions, traffic lights configuration, and public transport schedules.
-
-\item \textbf{Public Transport Integration Service}
-
-Interfaces with the external Public Transport Microservice.
-
-Retrieves current public transport schedules to align them with optimization suggestions.
-
-\item \textbf{Management Dashboard}
-
-User interface for Urban Area Managers to view, accept, or reject optimization proposals.
-
-Provides functionalities to monitor applied changes and generate reports.
-
-Reporting Module
-
-Generates periodic (daily/yearly) reports documenting optimizations proposed, approved, rejected, and implemented.
-
-View complaints made by the citizens
-
-Makes reports accessible to citizens and stakeholders for transparency.
-
-\item \textbf{Webpage for citizens}
-
-Interface directly with Public Transport Microservice to get real time status
-
-Make complaints about traffic and public transports
-
-\end{itemize}
-
-\subsection{Sequence Diagrams}
-
-\subsection{Critical Points and Design Decisions}
-
-Several critical aspects influence the architectural decisions and require special attention:
-
-
-\textbf{Real-Time Data Management}:
-Ensuring the system efficiently processes vast quantities of real-time data from sensors. The architectural choice of an event-driven design (message bus) significantly helps in achieving responsiveness and scalability.
-
-\textbf{Integration Complexity}:
-Integrating traffic data with public transportation schedules can introduce complexity. Using a dedicated Integration Service component simplifies this interaction and reduces coupling.
-
-\textbf{Decision Accountability and Transparency}:
-Given the urban managers' responsibility for final decisions, the Management Dashboard and Reporting Module are crucial components. They provide clear documentation and accountability for all system-generated suggestions and managerial decisions.
-
-\textbf{User-Centric Dashboard Design}:
-Urban managers need an intuitive interface. Designing a user-friendly Management Dashboard reduces the complexity of reviewing and managing optimizations.
-
-\textbf{System Scalability and Reliability}:
-The modular architecture (microservices and event-based design) supports scalability and ensures robustness, allowing each component to evolve independently without affecting overall system reliability.
 
 \newpage
 
-\section*{Type 3}
-
-\section{Requirement Analysis}
-\subsection{Relevant Human and Non-Human Actors}
-\begin{itemize}
-    \item \textbf{Urban Area Manager}: Responsible for managing urban infrastructure and ensuring efficient traffic flow, this actor evaluates suggestions provided by the system. The manager holds authority to approve or reject recommendations for changing traffic configurations, public transport scheduling, and road directions. Their decision-making directly influences the effectiveness and practicality of proposed optimizations.
-    \item \textbf{Traffic Management System}: Acts as the core analytical component by collecting, processing, and interpreting data from various sources, such as traffic sensors. This actor continuously monitors daily traffic flows, identifies congestion hotspots, and detects recurring traffic patterns that could benefit from optimization.
-    \item \textbf{Public Transport Microservice}: Provides comprehensive and real-time public transport schedules. By integrating this microservice, the system can propose modifications to transport schedules, aligning them with identified traffic patterns to optimize commuter convenience and reduce congestion.
-    \item \textbf{Citizens}: Although not directly interacting with the internal workings of the system, citizens are vital end-users who indirectly benefit from the optimizations. They receive publicly accessible reports about implemented and proposed changes, leading to improved commuting experiences through reduced congestion and more predictable traffic flows.
-    \item \textbf{Sensors}: Physical devices deployed at intersections and major roadways, these actors gather real-time data about traffic conditions. Accurate and timely sensor data is foundational, enabling the system to reliably analyze traffic patterns and propose meaningful optimizations.
-\end{itemize}
-
-
 \subsection{Use Cases}
+\subsection*{Type2}
 \begin{itemize}
     \item \textbf{Traffic Pattern Analysis}: The system continuously processes daily traffic data gathered from city-wide sensors to detect patterns and identify areas frequently experiencing congestion or inefficient traffic flow. By understanding traffic behaviors over time, it can pinpoint critical issues, such as bottlenecks caused by suboptimal traffic light timing, inefficient road layouts, or misaligned public transport schedules. Recognizing these patterns is essential for accurately suggesting targeted interventions.
     \item \textbf{Suggest Optimizations}: Utilizing insights gained from the traffic pattern analysis, the system generates actionable recommendations aimed at reducing congestion and improving overall commuting efficiency. These recommendations include adjusting the duration and synchronization of traffic lights, revising street directions (e.g., converting roads into one-way streets), and modifying public transportation schedules to better align with commuter patterns. These suggestions are then systematically communicated to urban area managers for review.
     \item \textbf{Review and Apply Changes}: In this use case, urban area managers critically examine the optimization suggestions provided by the system. They evaluate the practicality, potential impact, and feasibility of each recommendation before making decisions. Approved suggestions are subsequently implemented within the city’s infrastructure, directly influencing urban commuting conditions. Suggestions deemed impractical or undesirable are rejected, with the decision outcomes logged and documented for reporting purposes.
 \end{itemize}
 
-\subsection{Domain Assumptions}
-The following assumptions establish foundational conditions upon which the system's functionality depends:
-\begin{itmeize}
-    \item \textbf{Reliable Sensor Infrastructure}: It is assumed that sensors for measuring traffic flow are consistently operational, providing accurate and timely data. Reliable sensor data is fundamental to correctly identifying daily traffic patterns and making valid optimization suggestions.
-    \item \textbf{Availability of Public Transport Data}: The system presumes continuous access to an up-to-date public transport microservice. Accurate schedules and real-time information from this microservice are critical for suggesting effective adjustments to public transportation based on identified traffic patterns.
-    \item \textbf{Authority of Urban Area Managers}: It is assumed that urban area managers hold exclusive authority for approving or rejecting optimization suggestions. The system does not autonomously apply changes (other than traffic lights for Type 1 actions), ensuring that any significant modifications are subject to human oversight and final decision-making.
-    \item \textbf{Stable Communication Infrastructure}: The system assumes stable and continuous network connectivity between all components (traffic management system, sensors, microservices, and urban area manager interfaces), facilitating efficient data transfer and timely decision-making.
-\end{itmeize}
+\newpage
 
-\subsection{Requirements}
-\subsubsection{Functional Requirements}
-These are mandatory actions the system must fulfill to meet its objectives:
+\subsection*{Type3}
 \begin{itemize}
-    \item \textbf{Traffic Data Analysis}: The system must continuously collect and analyze traffic sensor data to detect daily traffic patterns and congestion areas.
-    \item \textbf{Optimization Recommendation Generation}: Based on traffic pattern analysis, the system must automatically propose targeted optimization actions. These include adjusting traffic light timing, redefining road directions (such as converting roads to one-way), and modifying public transportation schedules.
-    \item \textbf{Suggestion Management}: The system must provide urban area managers with an intuitive interface to view, review, and respond (approve/reject) to proposed optimizations.
-    \item \textbf{Reporting}: The system must regularly generate detailed reports documenting both proposed and implemented optimizations, including decisions made by urban area managers.
-\end{itemize}
-
-\subsubsection{Non-Functional Requirements}
-These constraints or conditions influence how the system performs its functions:
-\begin{itemize}
-    \item \textbf{Real-Time Responsiveness}: The system must rapidly analyze traffic data and provide optimization suggestions without significant delays, enabling timely decisions by urban managers.
-    \item \textbf{Scalability}: It must efficiently handle the large volume of data collected from numerous traffic sensors distributed across an urban area, ensuring consistent performance as city infrastructure grows.
-    \item \textbf{High Availability and Reliability}: The system must be operational continuously (with minimal downtime) to support uninterrupted urban traffic management.
-    \item \textbf{User-Friendly Interface}: The interface used by urban area managers to review suggestions must be straightforward, intuitive, and accessible, facilitating quick and informed decision-making.
-    \item \textbf{Security and Data Integrity}: The system must secure sensitive traffic data and ensure that data used for analyses and recommendations remain accurate, protected from unauthorized access or manipulation.
+    \item \textbf{Event Classification}: The system continuously monitors official event sources to identify upcoming large-scale events, categorizing them by size, location, and expected traffic impact. Based on these classifications, it determines the level of intervention required.
+    \item \textbf{Traffic Disruption Forecasting}: Utilizing historical traffic data, real-time congestion monitoring, and event classification, the system predicts potential disruptions, estimating increased traffic flow around event venues and surrounding areas. This enables early planning to mitigate issues before they arise.
+    \item \textbf{Dynamic Mobility Adaptation}: Based on the disruption forecasts, the system generates **adjustments for road configurations, public transport schedules, and pedestrian accessibility**. This includes rerouting vehicles, modifying traffic light timings, and increasing transit frequency for high-demand locations.
+    \item \textbf{Approval and Policy Coordination}: All proposed modifications require validation by the \textbf{Urban Area Manager} and associated city officials. The system presents data-driven recommendations to policymakers, ensuring that any temporary or permanent changes align with long-term urban planning goals.
+    \item \textbf{Public Engagement and Notification}: Once decisions are finalized, the \textbf{Notification System} disseminates structured alerts to citizens and commuters via mobile apps, city dashboards, and public transport displays. Notifications include alternative routes, expected delays, and temporary service modifications.
+    \item \textbf{Post-Event Traffic Normalization}: After event completion, the system monitors post-event traffic flow to assess recovery patterns, restoring standard transport configurations while analyzing the effectiveness of applied modifications. Insights gathered contribute to future optimizations for recurring events.
 \end{itemize}
 
 \newpage
 
-\section*{Type 3}
-% SECTION 2 - Requirement Analysis
-\section{Requirement Analysis}
-To design a robust and effective system, we define essential \textbf{actors}, \textbf{use cases}, \textbf{domain assumptions}, and \textbf{system requirements}.
-
-\subsection{Actors}
-\begin{itemize}
-    \item \textbf{Urban Manager}: Approves and enforces dynamic traffic regulations.
-    \item \textbf{Traffic Sensors}: Provide real-time congestion and flow data.
-    \item \textbf{Public Transport Microservice}: Offers updated schedules and route changes.
-    \item \textbf{News Event Collector}: Aggregates information on upcoming public events.
-    \item \textbf{Notification System}: Alerts citizens of traffic updates and reroutes.
-\end{itemize}
-
-\subsection{Use Cases}
-\begin{enumerate}
-    \item \textbf{Event Information Retrieval}: The system gathers event details from official sources.
-    \item \textbf{Traffic Flow Prediction}: Analyzes pre-event traffic to identify congestion hotspots.
-    \item \textbf{Traffic Configuration Generation}: Determines necessary modifications for roads, signals, and public transport.
-    \item \textbf{Approval Process}: Urban Manager reviews and validates traffic adjustments.
-    \item \textbf{Public Notification}: Citizens receive alerts regarding changes in traffic and transport schedules.
-\end{enumerate}
-
 \subsection{Domain Assumptions}
+\subsection*{Type 2}
+The following assumptions establish foundational conditions upon which the system's functionality depends:
 \begin{itemize}
-    \item Public events are announced sufficiently in advance to allow preemptive planning.
-    \item The system must integrate seamlessly with existing city infrastructure and sensor networks.
-    \item Modifications should minimize disruptions while optimizing traffic flow.
+    \item \textbf{Reliable Sensor Infrastructure}: It is assumed that sensors for measuring traffic flow are consistently operational, providing accurate and timely data. Reliable sensor data is fundamental to correctly identifying daily traffic patterns and making valid optimization suggestions.
+    \item \textbf{Availability of Public Transport Data}: The system presumes continuous access to an up-to-date public transport microservice. Accurate schedules and real-time information from this microservice are critical for suggesting effective adjustments to public transportation based on identified traffic patterns.
+    \item \textbf{Authority of Urban Area Managers}: It is assumed that urban area managers hold exclusive authority for approving or rejecting optimization suggestions. The system does not autonomously apply changes (other than traffic lights for Type 1 actions), ensuring that any significant modifications are subject to human oversight and final decision-making.
+    \item \textbf{Stable Communication Infrastructure}: The system assumes stable and continuous network connectivity between all components (traffic management system, sensors, microservices, and urban area manager interfaces), facilitating efficient data transfer and timely decision-making.
 \end{itemize}
 
-\subsection{System Requirements}
-\subsubsection{Functional Requirements}
+\newpage
+
+\subsection*{Type3}
 \begin{itemize}
-    \item The system must collect upcoming event data automatically.
-    \item It must analyze congestion patterns and traffic statistics dynamically.
-    \item Recommended configurations must be submitted for approval before execution.
-    \item The system must notify citizens via multiple channels (apps, public screens, traffic signs).
+    \item \textbf{Reliable Event Data Sources}: The system assumes continuous access to official city event feeds, ensuring accurate and timely information about planned events, including concerts, sports games, and large public gatherings.
+    \item \textbf{Availability of Public Transport Data}: Just as with Type 2 actions, the system relies on real-time data from the public transport microservice. This ensures that transport schedules can be dynamically adjusted to accommodate event-related disruptions.
+    \item \textbf{Stable Traffic Sensor Network}: The system presumes that sensors providing traffic congestion data remain operational, enabling accurate traffic flow predictions before, during, and after major events.
+    \item \textbf{Authority of Urban Area Managers}: Changes to road configurations and public transport routes based on event-driven optimizations must be reviewed and approved by urban area managers. The system does not autonomously modify infrastructure without validation.
+    \item \textbf{Efficient Communication Between Systems}: The event monitoring system, traffic management system, and notification system must maintain seamless connectivity, allowing real-time synchronization between traffic adjustments and public transport updates.
+    \item \textbf{Public Awareness and Responsiveness}: It is assumed that citizens and commuters will actively engage with real-time notifications provided by the system, ensuring informed travel decisions and reducing congestion risks.
+\end{itemize}
+
+\newpage
+
+\subsection{Requirements}
+\subsubsection{Functional Requirements}
+\subsection*{Type3}
+The functional requirements are the mandatory actions that the system must carry out to meet its objective and illustrate the interactions between the system and the environment:
+\begin{itemize}
+    \item{Event-Driven Traffic Adjustments} 
+    \\- The system must dynamically modify traffic configurations before and during events.
+    \item{Predictive Congestion Forecasting} 
+    \\- AI-driven forecasting enables early identification of mobility bottlenecks.
+    \item{Approval Workflow Management}
+    \\- Proposed optimizations must undergo a structured review process.
+    \item{Real-Time Public Transport Coordination}
+    \\- The system must adjust transport availability based on event-driven demand spikes.
+    \item{Public Notification System}
+    \\- Real-time alerts must inform commuters of route modifications and alternative travel options.
+    \item{Traffic Recovery and Analysis}
+    \\- The system must ensure post-event normalization and continuous refinement of optimization strategies.
 \end{itemize}
 
 \subsubsection{Non-Functional Requirements}
+\subsection*{Type3}
+The non-functional requirements contain or characterize how the system performs its functions as a whole:
 \begin{itemize}
-    \item Scalability to support multiple simultaneous events.
-    \item High processing speed to generate real-time recommendations.
-    \item Flexible updates allowing immediate traffic plan modifications.
+    \item{Real-Time Responsiveness} 
+    \\- The system must quickly analyze live traffic data and generate optimization suggestions with minimal delay, ensuring timely decision-making for urban managers and preventing congestion before it escalates.
+    \item{Scalability} 
+    \\- The system must handle fluctuations in urban mobility data, adapting to both routine commuting patterns and large-scale disruptions
+    \item{High Availability and Reliability}
+    \\- The system must operate continuously with minimal downtime to support uninterrupted urban traffic management.
+    \item{User Accessibility} 
+    \\- Notifications must be structured for easy comprehension by citizens, integrating multiple communication channels.
+    \item{Security and Data Integrity} 
+    \\- Unauthorized alterations must be prevented, ensuring optimization decisions are based on validated event forecasts.
 \end{itemize}
 
-\clearpage
+\newpage
 
 % SECTION 3 - System Design
 \section{System Design}
-This section presents the \textbf{architecture}, key components, and interaction sequences for Action Type3.
+\subsection*{Type3}
+This section presents the architecture, key components, and interaction sequences.
 
 \subsection{Architectural Overview}
 The system consists of the following components:
@@ -393,23 +197,25 @@ The system consists of the following components:
 \subsection{Sequence Diagrams}
 To ensure efficient operation, the system follows three main interaction sequences:
 
-\subsubsection{Event Reception}
+\subsubsection*{Event Reception}
 \begin{itemize}
     \item News Event Collector detects an upcoming event.
     \item EventCollector retrieves relevant information and logs it in the system.
 \end{itemize}
 
-\subsubsection{Traffic Analysis and Configuration Generation}
+\subsubsection*{Traffic Analysis and Configuration Generation}
 \begin{itemize}
     \item TrafficAnalyzer retrieves congestion data and models expected disruptions.
     \item ConfigurationGenerator computes optimal traffic control measures.
     \item The configurations are sent for validation.
 \end{itemize}
 
-\subsubsection{Approval and Public Notification}
+\subsubsection*{Approval and Public Notification}
 \begin{itemize}
     \item The Urban Manager reviews proposed adjustments and approves the changes.
     \item NotificationService informs citizens of road closures, signal modifications, and public transport reroutes.
 \end{itemize}
+
+\subsection{Critical points and design decisions}
 
 \end{document}
