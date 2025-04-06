@@ -198,6 +198,83 @@ The system must secure sensitive traffic data and ensure that data used for anal
     
 \end{itemize}
 
+\section{Design}
+
+\subsection{General Description of the Architecture}
+
+The system's architecture follows a microservice-oriented and event-driven approach, which allows scalability, modularity, and responsiveness—essential qualities for handling complex urban traffic patterns.
+
+Components:
+
+\begin{itemize}
+    \item \textbf{Sensor Data Collector}
+
+Subscribes to sensor-generated events from the message bus.
+
+Collects and preprocesses real-time traffic data to provide clean input to the Traffic Analyzer.
+
+\item \textbf{Traffic Analyzer}
+
+Receives processed sensor data.
+
+Analyzes and detects congestion patterns and inefficiencies in daily traffic flow.
+
+\item Optimization Engine
+
+Receives analysis results from the Traffic Analyzer.
+
+Generates targeted optimization recommendations for road directions, traffic lights configuration, and public transport schedules.
+
+\item \textbf{Public Transport Integration Service}
+
+Interfaces with the external Public Transport Microservice.
+
+Retrieves current public transport schedules to align them with optimization suggestions.
+
+\item \textbf{Management Dashboard}
+
+User interface for Urban Area Managers to view, accept, or reject optimization proposals.
+
+Provides functionalities to monitor applied changes and generate reports.
+
+Reporting Module
+
+Generates periodic (daily/yearly) reports documenting optimizations proposed, approved, rejected, and implemented.
+
+View complaints made by the citizens
+
+Makes reports accessible to citizens and stakeholders for transparency.
+
+\item \textbf{Webpage for citizens}
+
+Interface directly with Public Transport Microservice to get real time status
+
+Make complaints about traffic and public transports
+
+\end{itemize}
+
+\subsection{Sequence Diagrams}
+
+\subsection{Critical Points and Design Decisions}
+
+Several critical aspects influence the architectural decisions and require special attention:
+
+
+\textbf{Real-Time Data Management}:
+Ensuring the system efficiently processes vast quantities of real-time data from sensors. The architectural choice of an event-driven design (message bus) significantly helps in achieving responsiveness and scalability.
+
+\textbf{Integration Complexity}:
+Integrating traffic data with public transportation schedules can introduce complexity. Using a dedicated Integration Service component simplifies this interaction and reduces coupling.
+
+\textbf{Decision Accountability and Transparency}:
+Given the urban managers' responsibility for final decisions, the Management Dashboard and Reporting Module are crucial components. They provide clear documentation and accountability for all system-generated suggestions and managerial decisions.
+
+\textbf{User-Centric Dashboard Design}:
+Urban managers need an intuitive interface. Designing a user-friendly Management Dashboard reduces the complexity of reviewing and managing optimizations.
+
+\textbf{System Scalability and Reliability}:
+The modular architecture (microservices and event-based design) supports scalability and ensures robustness, allowing each component to evolve independently without affecting overall system reliability.
+
 \newpage
 
 \section*{Type 3}
