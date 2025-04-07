@@ -234,43 +234,59 @@ The non-functional requirements contain or characterize how the system performs 
 
 % SECTION 3 - System Design
 \section{System Design}
-
-
-\subsection*{Type3}
-This section presents the architecture, key components, and interaction sequences.
+This section outlines the architecture, sequence diagrams, key design decisions, and critical points relevant to event-driven urban mobility adaptations.
 
 \subsection{Architectural Overview}
-The system consists of the following components:
+\subsection*{Type3}
+The system follows a modular architecture, ensuring real-time adaptability to traffic disruptions caused by large-scale events.
 \begin{itemize}
-    \item \textbf{EventCollector} - Receives and processes event data from external sources.
-    \item \textbf{TrafficAnalyzer} - Monitors congestion and predicts affected areas.
-    \item \textbf{ConfigurationGenerator} - Computes traffic adaptations, including signal adjustments and reroutes.
-    \item \textbf{ApprovalModule} - Validates changes before execution by urban authorities.
-    \item \textbf{NotificationService} - Publishes updates for public awareness.
+    \item \textbf{EventCollector} - Continuously monitors and retrieves official event data from external sources.
+    \item \textbf{TrafficAnalyzer} - Processes congestion data, predicts affected areas, and identifies high-impact road segments.
+    \item \textbf{ConfigurationGenerator} - Computes traffic adaptations, including signal adjustments, lane closures, and reroutes.
+    \item \textbf{ApprovalModule} - Validates proposed modifications before execution by urban authorities.
+    \item \textbf{NotificationService} - Publishes updates informing citizens about road closures, alternative routes, and adjusted transit schedules.
 \end{itemize}
+
+\newpage
 
 \subsection{Sequence Diagrams}
+\subsection*{Type3}
 To ensure efficient operation, the system follows three main interaction sequences:
 
-\subsubsection*{Event Reception}
-\begin{itemize}
-    \item News Event Collector detects an upcoming event.
-    \item EventCollector retrieves relevant information and logs it in the system.
-\end{itemize}
+\begin{enumerate}
+    \item {Event Reception}
+    \begin{itemize}
+        \item Event Collector detects an upcoming event.
+        \item Event data is retrieved and logged in the system.
+        \item TrafficAnalyzer prepares preliminary impact forecasts.
+    \end{itemize}
+    \item {Traffic Analysis and Configuration Generation}
+    \begin{itemize}
+        \item TrafficAnalyzer retrieves real-time congestion data.
+        \item ConfigurationGenerator formulates optimized traffic control measures (e.g., signal adjustments, reroutes).
+        \item The configurations are prepared for validation.
+    \end{itemize}
+    \item {Approval and Public Notification}
+    \begin{itemize}
+        \item The Urban Manager reviews proposed adjustments and approves the changes.
+        \item NotificationService informs citizens of road closures, signal modifications, and public transport reroutes.
+    \end{itemize}
+\end{enumerate}
 
-\subsubsection*{Traffic Analysis and Configuration Generation}
-\begin{itemize}
-    \item TrafficAnalyzer retrieves congestion data and models expected disruptions.
-    \item ConfigurationGenerator computes optimal traffic control measures.
-    \item The configurations are sent for validation.
-\end{itemize}
-
-\subsubsection*{Approval and Public Notification}
-\begin{itemize}
-    \item The Urban Manager reviews proposed adjustments and approves the changes.
-    \item NotificationService informs citizens of road closures, signal modifications, and public transport reroutes.
-\end{itemize}
+\newpage
 
 \subsection{Critical points and design decisions}
+\subsection*{Type3 - design decisions:}
+\begin{itemize}
+    \item Event-Driven Optimization --> Unlike Type 2 actions (which focus on routine traffic improvements), Type 3 actions react dynamically to event-based disruptions.
+    \item Approval Workflow --> Ensures human oversight before implementing major transport reconfigurations.
+    \item Public Engagement -->  Structured communication channels provide real-time notifications to affected commuters.
+\end{itemize}
+\subsection*{Type3 - critical aspects:}
+\begin{itemize}
+    \item Event Data Accuracy --> Must ensure data reliability from official event sources.
+    \item Traffic Simulation Limitations --> Forecasting congestion trends must balance real-time responsiveness and computational efficiency.
+    \item Citizen Adaptability --> The effectiveness of optimizations depends on commuter engagement with system-generated notifications.
+\end{itemize}
 
 \end{document}
