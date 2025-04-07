@@ -135,6 +135,20 @@ Let's begin by examining the \textit{human actors} involved in this system first
 \newpage
 
 \subsection{Domain Assumptions}
+
+\subsection*{Type1}
+\begin{itemize}
+    \item \textit{Operational Sensor Infrastructure}: The system assumes that traffic sensors at intersections are fully functional and provide continuous, real-time data about vehicle flow. This data is essential to detect imbalances in traffic and trigger appropriate timing adjustments for traffic lights.
+    
+    \item \textit{Autonomous Traffic Light Control}: It is assumed that the system has the authority to autonomously apply temporary changes to traffic light durations based on sensor data, without requiring prior approval from urban area managers.
+
+    \item \textit{Traffic Light Controller Responsiveness}: The traffic light controllers are assumed to be responsive and capable of adapting their green/red timing immediately upon receiving new configurations from the traffic management system.
+
+    \item \textit{Accurate Data Logging Mechanism}: All Type1 actions performed by the system must be accurately logged. It is assumed that the logging infrastructure is reliable and capable of timestamping and storing every adjustment made for future auditing and analysis.
+
+    \item \textit{Real-Time Decision-Making Capability}: The system presumes a real-time or near-real-time data processing pipeline, allowing it to analyze traffic flow and react promptly by adjusting traffic light timings without significant delays.
+\end{itemize}
+
 \subsection*{Type 2}
 The following assumptions establish foundational conditions upon which the system's functionality depends:
 \begin{itemize}
@@ -143,8 +157,6 @@ The following assumptions establish foundational conditions upon which the syste
     \item \textit{Authority of Urban Area Managers}: It is assumed that urban area managers hold exclusive authority for approving or rejecting optimization suggestions. The system does not autonomously apply changes (other than traffic lights for Type 1 actions), ensuring that any significant modifications are subject to human oversight and final decision-making.
     \item \textit{Stable Communication Infrastructure}: The system assumes stable and continuous network connectivity between all components (traffic management system, sensors, microservices, and urban area manager interfaces), facilitating efficient data transfer and timely decision-making.
 \end{itemize}
-
-\newpage
 
 \subsection*{Type3}
 \begin{itemize}
