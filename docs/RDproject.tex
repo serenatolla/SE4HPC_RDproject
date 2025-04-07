@@ -30,14 +30,15 @@
 The following describes the \textbf{SustainCity} project and its goals to be achieved, developed as part of the \textbf{Software Engineering for HPC} course. We structured this first section into three key parts:
 \begin{itemize}
     \item The \textbf{Preface}, introducing the broader environmental and urban challenges motivating this project.
-    \item The \textbf{Problem Posed}, describing in detail the technical and societal issues to be addressed.
+    \item The \textbf{Problem Posed}, describing in detail the technical and society issues to be addressed.
     \item The \textbf{Project Goals}, outlining the core functionalities and expected outcomes.
 \end{itemize}
 
 \subsection*{Preface}
 Two urgent global concerns are environmental sustainability and climate change; because of air pollution and greenhouse gas emissions, transportation - especially urban commuting - worsens those issues. 
 \\ \\ The objective of the SustainCity project is to face urban mobility challenges through real-time traffic management, event-driven optimizations, and public transport coordination. 
-\\ \\To address these concerns, the project integrates traffic monitoring, event planning, and transport analytics into an adaptive system capable of creating data-driven recommendations for real-time city infrastructure improvements.
+\\ \\To address these concerns, the project integrates traffic monitoring, event planning, and transport analytics into an adaptive system capable of creating data-driven recommendations for real-time city infrastructure improvements. 
+\\ \\Thanks to these system recommendations, urban commuting can be drastically reduced, improving both citizens’ well-being and environmental sustainability.
 
 \subsection*{Problem Statement}
 The \textbf{SustainCity} system aims to optimize urban traffic using three key strategies:
@@ -98,6 +99,20 @@ Let's begin by examining the \textit{human actors} involved in this system first
 \newpage
 
 \subsection{Use Cases}
+\subsection*{Type1}
+\begin{itemize}
+    \item \textbf{Real-Time Traffic Monitoring}: The system continuously receives data from sensors installed at key intersections. These sensors measure metrics such as vehicle wait times and traffic density, enabling the system to maintain an up-to-date view of traffic flow throughout the city.
+    \item \textbf{Traffic Flow Evaluation}: Based on the incoming sensor data, the system evaluates whether a significant traffic imbalance exists between intersecting roads. If, for example, road A consistently shows higher vehicle throughput compared to the crossing road B, the system flags this as a condition that may require intervention.
+    \item \textbf{Dynamic Light Adjustment Decision}: When specific thresholds or patterns are detected (for instance, sustained congestion or excessive delay on one road), the system automatically determines whether to extend the green light duration on the congested road. This decision is made using pre-defined traffic management rules or adaptive algorithms.
+    \item \textbf{Actuation of Traffic Light Changes}: Once a decision is made, the system sends commands to the traffic light infrastructure to apply the updated timing configuration. This change is typically temporary (e.g., valid for the next hour), and will be re-evaluated in the next monitoring cycle.
+
+    \item \textbf{Logging of Actions}: Every automatic intervention performed by the system is logged with relevant metadata, including timestamp, affected intersections, traffic conditions, and rationale behind the decision. This log is crucial for transparency, auditing, and future system refinements.
+
+    \item \textbf{Daily Report Generation}: At the end of each day, the system compiles a report summarizing traffic trends on main roads and detailing all Type1 actions performed. This report is made publicly available to inform citizens and assist urban planners in understanding traffic evolution and system effectiveness.
+\end{itemize}
+
+\newpage
+
 \subsection*{Type2}
 \begin{itemize}
     \item \textbf{Traffic Pattern Analysis}: The system continuously processes daily traffic data gathered from city-wide sensors to detect patterns and identify areas frequently experiencing congestion or inefficient traffic flow. By understanding traffic behaviors over time, it can pinpoint critical issues, such as bottlenecks caused by suboptimal traffic light timing, inefficient road layouts, or misaligned public transport schedules. Recognizing these patterns is essential for accurately suggesting targeted interventions.
