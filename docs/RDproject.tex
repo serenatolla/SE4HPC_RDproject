@@ -144,6 +144,19 @@ The following assumptions establish foundational conditions upon which the syste
 
 \subsection{Requirements}
 \subsubsection{Functional Requirements}
+\subsection*{Type2}
+These are mandatory actions the system must fulfill to meet its objectives:
+\begin{itemize}
+\item Traffic Data Analysis:
+The system must continuously collect and analyze traffic sensor data to detect daily traffic patterns and congestion areas.
+\item Optimization Recommendation Generation:
+Based on traffic pattern analysis, the system must automatically propose targeted optimization actions. These include adjusting traffic light timing, redefining road directions (such as converting roads to one-way), and modifying public transportation schedules.
+\item Suggestion Management:
+The system must provide urban area managers with an intuitive interface to view, review, and respond (approve/reject) to proposed optimizations.
+\item Reporting:
+The system must regularly generate detailed reports documenting both proposed and implemented optimizations, including decisions made by urban area managers.
+\end{itemize}
+
 \subsection*{Type3}
 The functional requirements are the mandatory actions that the system must carry out to meet its objective and illustrate the interactions between the system and the environment:
 \begin{itemize}
@@ -162,6 +175,18 @@ The functional requirements are the mandatory actions that the system must carry
 \end{itemize}
 
 \subsubsection{Non-Functional Requirements}
+\subsection*{Type2}
+These constraints or conditions influence how the system performs its functions:
+\begin{itemize}
+These constraints or conditions influence how the system performs its functions:
+\item Real-Time Responsiveness: The system must rapidly analyze traffic data and provide optimization suggestions without significant delays, enabling timely decisions by urban managers.
+\item Scalability: It must efficiently handle the large volume of data collected from numerous traffic sensors distributed across an urban area, ensuring consistent performance as city infrastructure grows.
+\item High Availability and Reliability:
+The system must be operational continuously (with minimal downtime) to support uninterrupted urban traffic management.
+\item User-Friendly Interface: The interface used by urban area managers to review suggestions must be straightforward, intuitive, and accessible, facilitating quick and informed decision-making.
+\item Security and Data Integrity: The system must secure sensitive traffic data and ensure that data used for analyses and recommendations remain accurate, protected from unauthorized access or manipulation.
+\end{itemize}
+
 \subsection*{Type3}
 The non-functional requirements contain or characterize how the system performs its functions as a whole:
 \begin{itemize}
@@ -181,6 +206,8 @@ The non-functional requirements contain or characterize how the system performs 
 
 % SECTION 3 - System Design
 \section{System Design}
+
+
 \subsection*{Type3}
 This section presents the architecture, key components, and interaction sequences.
 
