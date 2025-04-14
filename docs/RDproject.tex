@@ -153,7 +153,8 @@ Review and Apply Changes & Urban area managers review and approve or reject syst
     \item \textit{Process Traffic Data} The system processes incoming sensor data, filtering out anomalies and organizing it into usable information.
     \item \textit{Store Analysis Results} The data collected are stored internally for use by the Optimization Engine. The data provided must be usable for the Traffic Management System.
 \end{itemize}
-\textbf{Assumptions}: Data reliability, Traffic sensors and Public Transport Microservice always working
+\textbf{Assumptions}: Traffic sensors and Public Transport Microservice always working, Enough Storage.
+\textbf{Requirements}: the system shall collect real-time data from city-wide traffic sensor and public transport microservice (FR1), the Sensors must produce reliable data and usable data for Traffic Management System (FR2), the system shall store and document all data elaborating results internally for subsequent use (FR3).
 
 \subsubsection*{Use Case 2: Suggest Optimizations}
 \textbf{Primary Actors}: Traffic Management System \\
@@ -168,6 +169,7 @@ The Optimization Engine retrieves combined traffic pattern and public transport 
 \item \textit{Present Recommendations to Urban Area Manager} The Optimization Engine makes recommendations accessible through the Urban Area Manager Interface for further review and decision-making. The optimizations suggested must be readable for Urban Area Manager.
 \end{itemize}
 \textbf{Assumptions}: Traffic Management System can perform Machine Learning techniques and has enough computational power, Data provided by the sensors are ready to be used, Traffic Management System provides optimiziation report for Urban Area Manager. \\
+\textbf{Requirements}: The system shall generate optimization recommendations, explicitly including (FR1), the Optimization Engine shall present clearly readable and actionable optimization recommendations to the Urban Area Manager through a dedicated management dashboard interface (FR2).
 
 \subsubsection*{Use Case 3: Review and Apply Changes}
 \textbf{Primary Actors}: Urban Area Manager \\
@@ -183,7 +185,8 @@ Public transit schedules are updated and communicated to the Public Transport Mi
 The User App, ensuring citizens are immediately informed about modifications.
 \item \textit{Publish Modification Reports} The Reporting Module generates and publishes a detailed public report via the User App, informing citizens about changes and their expected benefits.
 \end{itemize}
-\textbf{Assumptions}: Urban Area Manager has exclusive authority to approve or reject optimization recommendations, decisions are based on thorough evaluation considering citizen feedback, feasibility, and impact, the User App and city maps services are operational and capable of real-time updates.
+\textbf{Assumptions}: The User App and city maps services are operational and capable of real-time updates.
+\textbf{Requirements}: The system shall enable Urban Area Managers to approve or reject individual optimization suggestions explicitly, the system shall promptly update official city maps and the User App to reflect all implemented changes.
 
 \subsection*{Type3 Use Cases}
 \begin{table}[h!]
