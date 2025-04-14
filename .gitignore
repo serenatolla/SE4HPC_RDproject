@@ -1,0 +1,6 @@
+/docs/*.log
+/docs/*.out
+/docs/*.aux
+/docs/*.f*
+/docs/*.sync*
+/docs/*.toc
