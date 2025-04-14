@@ -98,39 +98,74 @@ Let's begin by examining the \textit{human actors} involved in this system first
 
 \newpage
 
-\subsection{Use Cases}
-\subsubsection{Type1 use cases}
-\begin{itemize}
-    \item \textbf{Real-Time Traffic Monitoring}: The system continuously receives data from sensors installed at key intersections. These sensors measure metrics such as vehicle wait times and traffic density, enabling the system to maintain an up-to-date view of traffic flow throughout the city.
-    \item \textbf{Traffic Flow Evaluation}: Based on the incoming sensor data, the system evaluates whether a significant traffic imbalance exists between intersecting roads. If, for example, road A consistently shows higher vehicle throughput compared to the crossing road B, the system flags this as a condition that may require intervention.
-    \item \textbf{Dynamic Light Adjustment Decision}: When specific thresholds or patterns are detected (for instance, sustained congestion or excessive delay on one road), the system automatically determines whether to extend the green light duration on the congested road. This decision is made using pre-defined traffic management rules or adaptive algorithms.
-    \item \textbf{Actuation of Traffic Light Changes}: Once a decision is made, the system sends commands to the traffic light infrastructure to apply the updated timing configuration. This change is typically temporary (e.g., valid for the next hour), and will be re-evaluated in the next monitoring cycle.
+\section{Use Cases}
+The following use cases describe how the system interacts with traffic data, urban managers, and external events to achieve its objectives. Each use case type corresponds to a specific level of system autonomy and decision-making: Type1 actions are fully automated, Type2 involve semi-automated analysis with human validation, and Type3 relate to exceptional or event-driven scenarios requiring coordinated interventions. The use cases are organized into tables for clarity.
 
-    \item \textbf{Logging of Actions}: Every automatic intervention performed by the system is logged with relevant metadata, including timestamp, affected intersections, traffic conditions, and rationale behind the decision. This log is crucial for transparency, auditing, and future system refinements.
-
-    \item \textbf{Daily Report Generation}: At the end of each day, the system compiles a report summarizing traffic trends on main roads and detailing all Type1 actions performed. This report is made publicly available to inform citizens and assist urban planners in understanding traffic evolution and system effectiveness.
-\end{itemize}
+\subsection*{Type1 Use Cases}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{4.5cm}|p{8.5cm}|}
+\hline
+\textbf{Use Case} & \textbf{Description} \\
+\hline
+Real-Time Traffic Monitoring & The system continuously receives data from traffic sensors at key intersections, monitoring vehicle wait times and traffic density. \\
+\hline
+Traffic Flow Evaluation & The system evaluates sensor data to detect significant imbalances between intersecting roads, flagging potential congestion. \\
+\hline
+Dynamic Light Adjustment Decision & Based on thresholds or patterns, the system autonomously decides to alter green light durations using predefined rules or adaptive algorithms. \\
+\hline
+Actuation of Traffic Light Changes & Once a decision is made, the system dispatches updated timing configurations to traffic lights for short-term application. \\
+\hline
+Logging of Actions & All interventions are logged with timestamps, affected roads, and justification for transparency and audit. \\
+\hline
+Daily Report Generation & The system generates a daily summary of traffic trends and all Type1 interventions for stakeholders and public access. \\
+\hline
+\end{tabular}
+\caption{Type1 Use Cases}
+\end{table}
 
 \newpage
 
-\subsubsection{Type2 use cases}
-\begin{itemize}
-    \item \textbf{Traffic Pattern Analysis}: The system continuously processes daily traffic data gathered from city-wide sensors to detect patterns and identify areas frequently experiencing congestion or inefficient traffic flow. By understanding traffic behaviors over time, it can pinpoint critical issues, such as bottlenecks caused by suboptimal traffic light timing, inefficient road layouts, or misaligned public transport schedules. Recognizing these patterns is essential for accurately suggesting targeted interventions.
-    \item \textbf{Suggest Optimizations}: Utilizing insights gained from the traffic pattern analysis, the system generates actionable recommendations aimed at reducing congestion and improving overall commuting efficiency. These recommendations include adjusting the duration and synchronization of traffic lights, revising street directions (e.g., converting roads into one-way streets), and modifying public transportation schedules to better align with commuter patterns. These suggestions are then systematically communicated to urban area managers for review.
-    \item \textbf{Review and Apply Changes}: In this use case, urban area managers critically examine the optimization suggestions provided by the system. They evaluate the practicality, potential impact, and feasibility of each recommendation before making decisions. Approved suggestions are subsequently implemented within the city’s infrastructure, directly influencing urban commuting conditions. Suggestions deemed impractical or undesirable are rejected, with the decision outcomes logged and documented for reporting purposes.
-\end{itemize}
+\subsection*{Type2 Use Cases}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{4.5cm}|p{8.5cm}|}
+\hline
+\textbf{Use Case} & \textbf{Description} \\
+\hline
+Traffic Pattern Analysis & The system processes daily traffic data to detect recurring congestion patterns, bottlenecks, or inefficiencies. \\
+\hline
+Suggest Optimizations & Based on analysis, the system recommends traffic light adjustments, road direction changes, and transit schedule modifications. \\
+\hline
+Review and Apply Changes & Urban area managers review and approve or reject system-generated suggestions, implementing selected actions. \\
+\hline
+\end{tabular}
+\caption{Type2 Use Cases}
+\end{table}
 
-\newpage
 
-\subsubsection{Type3 use cases}
-\begin{itemize}
-    \item \textbf{Event Classification}: The system continuously monitors official event sources to identify upcoming large-scale events, categorizing them by size, location, and expected traffic impact and, based on these classifications, determining the level of intervention required.
-    \item \textbf{Traffic Disruption Forecasting}: Utilizing historical traffic data, real-time congestion monitoring, and event classification, the system predicts potential disruptions, estimating increased traffic flow around event venues and surrounding areas. This enables early planning to mitigate issues before they arise.
-    \item \textbf{Dynamic Mobility Adaptation}: Based on the disruption forecasts, the system generates **adjustments for road configurations, public transport schedules, and pedestrian accessibility**. This includes rerouting vehicles, modifying traffic light timings, and increasing transit frequency for high-demand locations.
-    \item \textbf{Approval and Policy Coordination}: All proposed modifications require validation by the \textbf{Urban Area Manager} and associated city officials. The system presents data-driven recommendations to policymakers, ensuring that any temporary or permanent changes align with long-term urban planning goals.
-    \item \textbf{Public Engagement and Notification}: Once decisions are finalized, the \textbf{Notification System} disseminates structured alerts to citizens and commuters via mobile apps, city dashboards, and public transport displays. Notifications include alternative routes, expected delays, and temporary service modifications.
-    \item \textbf{Post-Event Traffic Normalization}: After event completion, the system monitors post-event traffic flow to assess recovery patterns, restoring standard transport configurations while analyzing the effectiveness of applied modifications. Insights gathered contribute to future optimizations for recurring events.
-\end{itemize}
+\subsection*{Type3 Use Cases}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{4.5cm}|p{8.5cm}|}
+\hline
+\textbf{Use Case} & \textbf{Description} \\
+\hline
+Event Classification & The system monitors official sources for events, categorizing them by size, location, and expected impact. \\
+\hline
+Traffic Disruption Forecasting & It predicts congestion using event data, historical trends, and real-time sensor input, enabling preemptive planning. \\
+\hline
+Dynamic Mobility Adaptation & The system adapts traffic lights, road usage, and public transport routes in response to forecasts. \\
+\hline
+Approval and Policy Coordination & Proposed actions are submitted to managers and city officials for validation and alignment with policy. \\
+\hline
+Public Engagement and Notification & Citizens are informed through mobile apps and dashboards about changes, alternate routes, and delays. \\
+\hline
+Post-Event Traffic Normalization & After events, the system restores standard configurations and analyzes effectiveness to improve future planning. \\
+\hline
+\end{tabular}
+\caption{Type3 Use Cases}
+\end{table}
 
 \newpage
 
