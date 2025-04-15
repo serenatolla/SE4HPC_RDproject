@@ -338,62 +338,14 @@ The functional requirements are the mandatory actions that the system must carry
 
 
 \subsubsection{Non-Functional Requirements}
-
-\subsubsection*{Type1}
 These constraints or conditions influence how the system performs its functions:
 \begin{itemize}
-    \item \textbf{Real-Time Responsiveness:}  
-    The system must analyze sensor input and apply traffic light adjustments with minimal latency to prevent congestion build-up.
-
-    \item \textbf{Fault Tolerance:}  
-    The system must handle temporary sensor or controller failures gracefully, continuing operation using fallback logic where needed.
-
-    \item \textbf{Reliability and Availability:}  
-    The traffic monitoring and control components must be continuously operational with high uptime to ensure uninterrupted flow management.
-
-    \item \textbf{System Transparency:}  
-    All autonomous decisions must be explainable and traceable via logs to support auditing and trust.
-
-    \item \textbf{Data Integrity:}  
-    Traffic sensor data and light timing commands must be transmitted securely and stored accurately to prevent corruption or manipulation.
-\end{itemize}
-
-\subsubsection*{Type2}
-These constraints or conditions influence how the system performs its functions:
-\begin{itemize}
-    \item \textbf{Real-Time Responsiveness:}  
-    The system must rapidly analyze traffic data and provide optimization suggestions without significant delays, enabling timely decisions by urban managers.
-
-    \item \textbf{Scalability:}  
-    It must efficiently handle the large volume of data collected from numerous traffic sensors distributed across an urban area, ensuring consistent performance as city infrastructure grows.
-
-    \item \textbf{High Availability and Reliability:}  
-    The system must be operational continuously (with minimal downtime) to support uninterrupted urban traffic management.
-
-    \item \textbf{User-Friendly Interface:}  
-    The interface used by urban area managers to review suggestions must be straightforward, intuitive, and accessible, facilitating quick and informed decision-making.
-
-    \item \textbf{Security and Data Integrity:}  
-    The system must secure sensitive traffic data and ensure that data used for analyses and recommendations remain accurate, protected from unauthorized access or manipulation.
-\end{itemize}
-
-\subsubsection*{Type3}
-The non-functional requirements contain or characterize how the system performs its functions as a whole:
-\begin{itemize}
-    \item \textbf{Real-Time Responsiveness:}  
-    The system must quickly analyze live traffic data and generate optimization suggestions with minimal delay, ensuring timely decision-making for urban managers and preventing congestion before it escalates.
-
-    \item \textbf{Scalability:}  
-    The system must handle fluctuations in urban mobility data, adapting to both routine commuting patterns and large-scale disruptions.
-
-    \item \textbf{High Availability and Reliability:}  
-    The system must operate continuously with minimal downtime to support uninterrupted urban traffic management.
-
-    \item \textbf{User Accessibility:}  
-    Notifications must be structured for easy comprehension by citizens, integrating multiple communication channels.
-
-    \item \textbf{Security and Data Integrity:}  
-    Unauthorized alterations must be prevented, ensuring optimization decisions are based on validated event forecasts.
+\item \textbf{Real-Time Responsiveness:}  System must analyze and respond to data inputs rapidly (traffic, sensors, events) minimizing delays to avoid congestion escalation. \\
+\item \textbf{Fault Tolerance and Reliability:}  Must handle sensor, controller, or network failures, maintaining operational continuity through fallback procedures. \\
+\item \textbf{Availability and Scalability:}  Continuous operation with minimal downtime, handling significant fluctuations in data volume and user requests as city infrastructure grows or during events. \\
+\item \textbf{System Transparency and Traceability:}  Autonomous system actions must be logged comprehensively, ensuring all decisions and changes are auditable, explainable, and accountable. \\
+\item \textbf{Data Integrity and Security:}Secure storage, transmission, and handling of sensitive traffic data, ensuring prevention of corruption or unauthorized manipulation. \\
+\item \textbf{User Accessibility and Interface Quality:}  Interfaces for urban area managers and notifications to citizens must be intuitive, clear, timely, and accessible across multiple digital channels for efficient decision-making and public engagement. \\   
 \end{itemize}
 
 \newpage
