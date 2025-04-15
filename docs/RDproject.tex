@@ -30,15 +30,15 @@
 The following describes the \textbf{SustainCity} project and its goals to be achieved, developed as part of the \textbf{Software Engineering for HPC} course. We structured this first section into three key parts:
 \begin{itemize}
     \item The \textbf{Preface}, introducing the broader environmental and urban challenges motivating this project.
-    \item The \textbf{Problem Posed}, describing in detail the technical and society issues to be addressed.
+    \item The \textbf{Problem Statement}, describing in detail the technical and society issues to be addressed.
     \item The \textbf{Project Goals}, outlining the core functionalities and expected outcomes.
 \end{itemize}
 
 \subsection*{Preface}
 Two urgent global concerns are environmental sustainability and climate change; because of air pollution and greenhouse gas emissions, transportation - especially urban commuting - worsens those issues. 
-\\ \\ The objective of the SustainCity project is to face urban mobility challenges through real-time traffic management, event-driven optimizations, and public transport coordination. 
-\\ \\To address these concerns, the project integrates traffic monitoring, event planning, and transport analytics into an adaptive system capable of creating data-driven recommendations for real-time city infrastructure improvements. 
-\\ \\Thanks to these system recommendations, urban commuting can be drastically reduced, improving both citizens’ well-being and environmental sustainability.
+\\ The objective of the SustainCity project is to face urban mobility challenges through real-time traffic management, event-driven optimizations, and public transport coordination. 
+\\ To address these concerns, the project integrates traffic monitoring, event planning, and transport analytics into an adaptive system capable of creating data-driven recommendations for real-time city infrastructure improvements. 
+\\ Thanks to these system recommendations, urban commuting can be drastically reduced, improving both citizens’ well-being and environmental sustainability.
 
 \subsection*{Problem Statement}
 The \textbf{SustainCity} system aims to optimize urban traffic using three key strategies:
@@ -127,8 +127,16 @@ Actuation of Traffic Light Changes & Once a decision is made, the system dispatc
     \item \textit{Receive and Process Data} The Traffic Management System continuously receives and validates incoming sensor data, checking for data consistency and accuracy.
     \item \textit{Store and Document Data} The processed data is stored internally for immediate access by other modules within the Traffic Management System.
 \end{itemize}
-\textbf{Assumptions}: Traffic Sensors are fully operational, event bus system is reliable and timely \\
-\textbf{Requirements}: continuously collect real-time sensor  data at intersections (FR1), data collected must be accurate and timely (FR2) \\
+\textbf{Assumptions}: 
+\begin{itemize}
+    \item Traffic Sensors  fully operational
+    \item The event bus system is reliable and timely \\
+\end{itemize}
+\textbf{Requirements}: 
+\begin{itemize}
+    \item Continuous collection real-time sensor  data at intersections (FR1)
+    \item Data collection must be accurate and timely (FR2)
+\end{itemize} 
 
 \subsubsection*{Use Case 2: Dynamic Light Adjustment Decision}
 \textbf{Primary Actors}: Traffic Management System \\
@@ -139,8 +147,16 @@ Actuation of Traffic Light Changes & Once a decision is made, the system dispatc
     \item \textit{Decision Making} Based on predefined thresholds and adaptive algorithms, the system autonomously decides if traffic light timing adjustments are necessary.
     \item \textit{Prepare Adjustment Instructions} System formulates the specific adjustment parameters (timing alterations) required for each affected intersection.
 \end{itemize}
-\textbf{Assumptions}: pre-defined thresholds and adaptive algorithms are accurate and reliable, real-time processing capabilities exist within the system \\
-\textbf{Requirements}: autonomously detect traffic imbalances (FR1), clearly document each decision and its justification (FR2) \\
+\textbf{Assumptions}: 
+\begin{itemize}
+    \item Accuracy and Reliability of pre-defined thresholds and adaptive algorithm
+    \item Real-time processing capabilities exist within the system
+\end{itemize} 
+\textbf{Requirements}: 
+\begin{itemize}
+    \item Autonomous detection of traffic imbalances (FR1)
+    \item Clear documentation of each decision and its justification (FR2)
+\end{itemize}
 
 \subsubsection*{Use Case 3: Actuation of Traffic Light Changes}
 \textbf{Primary Actors}: Traffic Management System \\
@@ -152,13 +168,19 @@ Actuation of Traffic Light Changes & Once a decision is made, the system dispatc
     \item \textit{Log Action} Traffic Management System logs the applied changes, including time of application, intersections affected, and rationale for transparency and audit purposes.
     \item \textit{Public Notification} Notification System optionally communicates any critical short-term adjustments to commuters via dashboards if necessary.
 \end{itemize}
-\textbf{Assumptions}: reliable, uninterrupted communication between management system and traffic controllers \\
-\textbf{Requirements}: autonomous dispatch and immediate application of new traffic timings (FR1), comprehensive logging of every applied change for auditing (FR2) \\
+\textbf{Assumptions}: 
+\begin{itemize}
+    \item Reliability and uninterrupted communication between the management system and traffic controllers.
+\end{itemize}
+\textbf{Requirements}: 
+\begin{itemize}
+    \item Autonomous dispatching and immediate application of new traffic timings (FR1)
+    \item Comprehensive logging of every applied change for auditing (FR2) 
+\end{itemize}
 
 \newpage
 
 \subsection*{Type2 Use Cases}
-
 \begin{table}[h!]
 \centering
 \begin{tabular}{|p{4.5cm}|p{8.5cm}|}
@@ -184,40 +206,66 @@ Review and Apply Changes & Urban area managers review and approve or reject syst
     \item \textit{Process Traffic Data} The system processes incoming sensor data, filtering out anomalies and organizing it into usable information.
     \item \textit{Store Analysis Results} The data collected are stored internally for use by the Optimization Engine. The data provided must be usable for the Traffic Management System.
 \end{itemize}
-\textbf{Assumptions}: Traffic sensors and Public Transport Microservice always working, enough storage.
-\textbf{Requirements}: the system shall collect real-time data from city-wide traffic sensor and public transport microservice (FR1), the Sensors must produce reliable data and usable data for Traffic Management System (FR2), the system shall store and document all data elaborating results internally for subsequent use (FR3).
+\textbf{Assumptions}: 
+\begin{itemize}
+    \item Traffic sensors and Public Transport Microservice always working with enough storage.
+\end{itemize}
+\textbf{Requirements}: 
+\begin{itemize}
+    \item The system shall collect real-time data from city-wide traffic sensor and public transport microservice (FR1)
+    \item The Sensors must produce reliable data and usable data for Traffic Management System (FR2)
+    \item The system shall store and document all data elaborating results internally for subsequent use (FR3).
+\end{itemize}
 
 \subsubsection*{Use Case 2: Suggest Optimizations}
 \textbf{Primary Actors}: Traffic Management System \\
 \textbf{Supporting Actors}:  Urban Area, Traffic Sensors, Public Transport Microservice \\
 \textbf{Use case flow}: 
 \begin{itemize}
-\item \textit{Retrieve Analysis Results}
-The Optimization Engine retrieves combined traffic pattern and public transport data results previously generated by the sensors and the microservice.
-\item \textit{Data refinement} The Traffic Management System apply techniques in order to have data ready to be processed for Machine Learning techniques both for Supervised and Unsupervised data.
-\item \textit{Generate Optimization Recommendations} The system generates a detailed list of specific, actionable optimization suggestions, including: recommended directional changes for particular road segments, proposed timetable modifications for bus and tram services.
-\item \textit{Prioritize and Store Recommendations} The system prioritizes and store the generated recommendations based on expected effectiveness, feasibility, and urgency, forming a ranked list.
-\item \textit{Present Recommendations to Urban Area Manager} The Optimization Engine makes recommendations accessible through the Urban Area Manager Interface for further review and decision-making. The optimizations suggested must be readable for Urban Area Manager.
+    \item \textit{Retrieve Analysis Results}
+    The Optimization Engine retrieves combined traffic pattern and public transport data results previously generated by the sensors and the microservice.
+    \item \textit{Data refinement} The Traffic Management System apply techniques in order to have data ready to be processed for Machine Learning techniques both for Supervised and Unsupervised data.
+    \item \textit{Generate Optimization Recommendations} The system generates a detailed list of specific, actionable optimization suggestions, including: recommended directional changes for particular road segments, proposed timetable modifications for bus and tram services.
+    \item \textit{Prioritize and Store Recommendations} The system prioritizes and store the generated recommendations based on expected effectiveness, feasibility, and urgency, forming a ranked list.
+    \item \textit{Present Recommendations to Urban Area Manager} The Optimization Engine makes recommendations accessible through the Urban Area Manager Interface for further review and decision-making. The optimizations suggested must be readable for Urban Area Manager.
 \end{itemize}
-\textbf{Assumptions}: Traffic Management System can perform Machine Learning techniques and has enough computational power, data provided by the sensors are ready to be used, Traffic Management System provides optimiziation report for Urban Area Manager. \\
-\textbf{Requirements}: the system shall generate optimization recommendations (FR1), the Optimization Engine shall present clearly readable and actionable optimization recommendations to the Urban Area Manager through a dedicated management dashboard interface (FR2).
+\textbf{Assumptions}: 
+\begin{itemize}
+    \item Traffic Management System can perform Machine Learning techniques and has enough computational power
+    \item Data provided by the sensors are ready to be used
+    \item Traffic Management System provides optimization report for Urban Area Manager.
+\end{itemize}
+\textbf{Requirements}: 
+\begin{itemize}
+    \item The system shall generate optimization recommendations (FR1)
+    \item The Optimization Engine shall present clearly readable and actionable optimization recommendations to the Urban Area Manager through a dedicated management dashboard interface (FR2).
+\end{itemize}
 
 \subsubsection*{Use Case 3: Review and Apply Changes}
 \textbf{Primary Actors}: Urban Area Manager \\
 \textbf{Supporting Actors}: Traffic Management System \\ 
 \textbf{Use case flow}: 
 \begin{itemize}
-\item \textit{Access Optimization Recommendations} Urban Area Manager accesses the optimization suggestions presented by the Optimization Engine via the Management Dashboard.
-\item \textit{Review Optimization Suggestions} Manager evaluates each optimization suggestion carefully, considering feasibility, expected benefits, potential impact, and citizen feedback previously received.
-\item \textit{Approve or Reject Suggestions} Manager decides whether to approve or reject each suggestion individually.
-\Item \textit{Implement Approved Changes} For each approved optimization, road direction changes are physically implemented and updated in traffic signs.
-Public transit schedules are updated and communicated to the Public Transport Microservice.
-\item \textit{Update City Maps and User App} All implemented changes are reflected promptly in: Official city maps.
-The User App, ensuring citizens are immediately informed about modifications.
-\item \textit{Publish Modification Reports} The Reporting Module generates and publishes a detailed public report via the User App, informing citizens about changes and their expected benefits.
+    \item \textit{Access Optimization Recommendations} Urban Area Manager accesses the optimization suggestions presented by the Optimization Engine via the Management Dashboard.
+    \item \textit{Review Optimization Suggestions} Manager evaluates each optimization suggestion carefully, considering feasibility, expected benefits, potential impact, and citizen feedback previously received.
+    \item \textit{Approve or Reject Suggestions} Manager decides whether to approve or reject each suggestion individually.
+    \Item \textit{Implement Approved Changes} For each approved optimization, road direction changes are physically implemented and updated in traffic signs.
+    Public transit schedules are updated and communicated to the Public Transport Microservice.
+    \item \textit{Update City Maps and User App} All implemented changes are reflected promptly in: Official city maps.
+    The User App, ensures citizens are immediately informed about modifications.
+    \item \textit{Publish Modification Reports} The Reporting Module generates and publishes a detailed public report via the User App, informing citizens about changes and their expected benefits.
 \end{itemize}
-\textbf{Assumptions}: the User App and city maps services are operational and capable of real-time updates.
-\textbf{Requirements}: the system shall enable Urban Area Managers to approve or reject individual optimization suggestions explicitly, the system shall promptly update official city maps and the User App to reflect all implemented changes.
+\textbf{Assumptions}: 
+\begin{itemize}
+    \item The User App and city map services are operational and capable of real-time updates.
+\end{itemize}
+\textbf{Requirements}: 
+\begin{itemize}
+    \item The system shall enable Urban Area Managers to approve or reject individual optimization suggestions explicitly. (FR1)
+    \item The system shall promptly update official city maps and the User App to reflect all implemented changes. (FR2)
+\end{itemize} 
+
+\newpage
 
 \subsection*{Type3 Use Cases}
 \begin{table}[h!]
@@ -226,21 +274,84 @@ The User App, ensuring citizens are immediately informed about modifications.
 \hline
 \textbf{Use Case} & \textbf{Description} \\
 \hline
-Event Classification & The system monitors official sources for events, categorizing them by size, location, and expected impact. \\
-\hline
 Traffic Disruption Forecasting & It predicts congestion using event data, historical trends, and real-time sensor input, enabling preemptive planning. \\
 \hline
 Dynamic Mobility Adaptation & The system adapts traffic lights, road usage, and public transport routes in response to forecasts. \\
 \hline
-Approval and Policy Coordination & Proposed actions are submitted to managers and city officials for validation and alignment with policy. \\
-\hline
 Public Engagement and Notification & Citizens are informed through mobile apps and dashboards about changes, alternate routes, and delays. \\
-\hline
-Post-Event Traffic Normalization & After events, the system restores standard configurations and analyzes effectiveness to improve future planning. \\
 \hline
 \end{tabular}
 \caption{Type3 Use Cases}
 \end{table}
+
+\subsubsection*{Use Case 1: Traffic Disruption Forecasting}
+\textbf{Primary Actors}: Traffic Management System, Event Monitoring System \\
+\textbf{Supporting Actors}: Traffic Sensors, Public Transport Microservices \\
+\textbf{Use case flow}: 
+\begin{itemize}
+    \item \textit{Event Detection} The Event Monitoring System identifies a planned city event (e.g., concert, fair, sports match) and transmits details (location, duration, expected attendance).
+    \item \textit{Traffic Impact Analysis} The Traffic Management System retrieves historical congestion data for similar events, comparing it with real-time traffic conditions to predict disruption levels.
+    \item \textit{Congestion Prediction Modeling} AI-driven algorithms forecast expected delays and bottlenecks, generating a predictive traffic model.
+    \item \textit{Risk Categorization} he system classifies events by severity (minor, moderate, high-impact) based on anticipated congestion and traffic complexity.
+    \item \textit{Decision Preparation} The predictive findings are stored for use by Dynamic Mobility Adaptation and Public Notification workflows.
+\end{itemize}
+\textbf{Assumptions}: 
+\begin{itemize}
+    \item Event Monitoring System continuously provides real-time updates on planned city events.
+    \item Historical traffic data is available and reliable for prediction accuracy.
+\end{itemize}
+\textbf{Requirements}:
+\begin{itemize}
+    \item The system must retrieve the details of the events in real time. (FR1)
+    \item AI models must generate reliable congestion forecasts based on historical and live data. (FR2)
+    \item Events must be categorized by traffic impact to ensure strategic decision-making. (FR3)
+\end{itemize}
+
+\subsubsection*{Use Case 2: Dynamic Mobility Adaptation}
+\textbf{Primary Actors}: Traffic Management System \\
+\textbf{Supporting Actors}: Traffic Sensors, Public Transport Microservices, Notification System \\
+\textbf{Use case flow}: 
+\begin{itemize}
+    \item \textit{Retrieve Congestion Forecast} Traffic Management System accesses predicted event-driven congestion analysis results.
+    \item \textit{Compute Response Strategy} System generates adaptive changes, including traffic light timing adjustments, altered lane usage, and public transport rerouting.
+    \item \textit{Validate Adaptations} Proposed mobility adjustments are reviewed to ensure feasibility and alignment with broader urban management strategies.
+    \item \textit{Implement Changes} Traffic lights, road usage, and transport routes are updated dynamically based on final validation.
+    \item \textit{Citizen Notification} Commuters are informed of temporary road modifications through digital dashboards and mobile apps.
+\end{itemize}
+\textbf{Assumptions}: 
+\begin{itemize}
+    \item Traffic controllers are capable of receiving and implementing adaptive changes in near-real time.
+    \item Commuters actively engage with public notifications to adjust their travel plans accordingly.
+\end{itemize}
+\textbf{Requirements}:
+\begin{itemize}
+    \item System must autonomously generate traffic adaptation recommendations. (FR1)
+    \item Public transport schedules must be dynamically adjusted to accommodate demand shifts. (FR2)
+    \item Road modifications must be communicated in real time through digital channels. (FR3)
+\end{itemize}
+
+\subsubsection*{Use Case 3: Public Engagement and Notification}
+\textbf{Primary Actors}: Notification System \\
+\textbf{Supporting Actors}: Traffic Management System, Urban Area Manager\\
+\textbf{Use case flow}: 
+\begin{itemize}
+    \item \textit{Generate Citizen Alerts}  Notification System prepares targeted messages regarding upcoming event-driven mobility changes.
+    \item \textit{Select Communication Channels} System chooses optimal dissemination platforms (city mobility apps, transport displays, public dashboards)
+    \item \textit{Distribute Information} Alerts are broadcast across multiple channels, ensuring maximum commuter reach.
+    \item \textit{Citizen Interaction Tracking} System monitors engagement metrics (view rates, clicks) to assess notification effectiveness.
+    \item \textit{Feedback Loop}  Public responses are logged and analyzed to refine future engagement strategies.
+\end{itemize}
+\textbf{Assumptions}: 
+\begin{itemize}
+    \item Citizens actively use digital mobility platforms to stay informed.
+    \item Public dashboards and apps are capable of delivering real-time updates.
+\end{itemize}
+\textbf{Requirements}:
+\begin{itemize}
+    \item System must distribute event-driven alerts through multiple communication platforms. (FR1)
+    \item Notifications must be clear, timely, and actionable. (FR2)
+    \item Public feedback must be captured and analyzed to refine notification effectiveness. (FR3)
+\end{itemize}
 
 \newpage
 
