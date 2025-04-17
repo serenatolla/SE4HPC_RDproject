@@ -388,64 +388,90 @@ The correct operation of the system is based on the following cross-cutting assu
 
 \subsubsection{Functional Requirements}
 
-\subsubsection*{Type1}
-These are mandatory actions the system must fulfill to meet its objectives:
+This section consolidates and explains the Functional Requirements (FRs) identified within the use cases, explicitly mapping each FR to the corresponding use cases. \\
+
 \begin{itemize}
-    \item \textbf{Real-Time Traffic Monitoring:}  
-    The system must continuously collect data from traffic sensors installed at key intersections to monitor vehicle wait times and traffic density.
-
-    \item \textbf{Traffic Imbalance Detection:}  
-    The system must automatically detect significant traffic imbalances between intersecting roads using real-time sensor data.
-
-    \item \textbf{Autonomous Light Timing Adjustment:}  
-    The system must autonomously modify traffic light durations in response to detected imbalances, following pre-defined rules or adaptive algorithms.
-
-    \item \textbf{Light Configuration Dispatch:}  
-    The system must send updated traffic light timing configurations to the respective controllers without manual intervention.
-
-    \item \textbf{Action Logging:}  
-    Every automated change in traffic light behavior must be logged with timestamp, affected intersections, and rationale.
-
-    \item \textbf{Daily Activity Summary:}  
-    The system must generate a daily report detailing Type1 interventions and overall traffic conditions for transparency and analysis.
+\item \textbf{FR1: Real-Time Data Collection} \\
+The system must continuously collect real-time data from traffic sensors and public transport microservices. This ensures accurate monitoring and effective decision-making. \\
+\textbf{Associated Use Cases:}
+\begin{itemize}
+\item Type1: Real-Time Traffic Monitoring
+\item Type2: Traffic Pattern and Public Transport Analysis
+\end{itemize}
+\item \textbf{FR2: Accurate Data Processing} \\
+The system must ensure the accuracy and reliability of data collected from sensors and microservices. The integrity of this data is essential for reliable system operations. \\
+\textbf{Associated Use Cases:}
+\begin{itemize}
+\item Type1: Real-Time Traffic Monitoring
+\item Type2: Traffic Pattern and Public Transport Analysis
+\item Type3: Traffic Disruption Forecasting
+\end{itemize}
+\item \textbf{FR3: Autonomous Decision-Making} \\
+The system must autonomously identify traffic imbalances and dynamically decide adjustments, such as modifying traffic light timings or traffic configurations based on real-time data. \\
+\textbf{Associated Use Cases:}
+\begin{itemize}
+\item Type1: Dynamic Light Adjustment Decision, Actuation of Traffic Light Changes
+\item Type3: Dynamic Mobility Adaptation
 \end{itemize}
 
-\subsubsection*{Type2}
-These are mandatory actions the system must fulfill to meet its objectives:
+\item \textbf{FR4: Optimization Recommendations Generation} \\
+The system must generate clear and actionable optimization recommendations based on traffic analysis, including adjustments in traffic signals, road direction changes, and public transportation schedules. \\
+\textbf{Associated Use Cases:}
 \begin{itemize}
-    \item \textbf{Traffic Data Analysis:}  
-    The system must continuously collect and analyze traffic sensor data to detect daily traffic patterns and congestion areas.
-
-    \item \textbf{Optimization Recommendation Generation:}  
-    Based on traffic pattern analysis, the system must automatically propose targeted optimization actions. These include adjusting traffic light timing, redefining road directions (such as converting roads to one-way), and modifying public transportation schedules.
-
-    \item \textbf{Suggestion Management:}  
-    The system must provide urban area managers with an intuitive interface to view, review, and respond (approve/reject) to proposed optimizations.
-
-    \item \textbf{Reporting:}  
-    The system must regularly generate detailed reports documenting both proposed and implemented optimizations, including decisions made by urban area managers.
+\item Type2: Suggest Optimizations
 \end{itemize}
 
-\subsubsection*{Type3}
-The functional requirements are the mandatory actions that the system must carry out to meet its objective and illustrate the interactions between the system and the environment:
+\item \textbf{FR5: Recommendation Management} \\
+The system must enable urban area managers to explicitly approve or reject optimization suggestions via an intuitive dashboard interface. \\
+\textbf{Associated Use Cases:}
 \begin{itemize}
-    \item \textbf{Event-Driven Traffic Adjustments:}  
-    The system must dynamically modify traffic configurations before and during events.
+\item Type2: Review and Apply Changes
+\item Type3: Approval Workflow Management
+\end{itemize}
 
-    \item \textbf{Predictive Congestion Forecasting:}  
-    AI-driven forecasting enables early identification of mobility bottlenecks.
+\item \textbf{FR6: Event-driven Congestion Forecasting} \\
+AI-driven forecasting models must predict congestion levels and categorize event impacts to facilitate preemptive traffic management planning. \\
+\textbf{Associated Use Cases:}
+\begin{itemize}
+\item Type3: Traffic Disruption Forecasting
+\end{itemize}
 
-    \item \textbf{Approval Workflow Management:}  
-    Proposed optimizations must undergo a structured review process.
+\item \textbf{FR7: Real-Time Public Transport Coordination} \\
+The system must dynamically adjust public transport availability to meet event-driven demands and minimize congestion. \\
+\textbf{Associated Use Cases:}
+\begin{itemize}
+\item Type3: Dynamic Mobility Adaptation
+\end{itemize}
 
-    \item \textbf{Real-Time Public Transport Coordination:}  
-    The system must adjust transport availability based on event-driven demand spikes.
+\item \textbf{FR8: Immediate Application of Changes} \\
+The system must autonomously dispatch and immediately apply traffic configuration changes without manual intervention to promptly address identified issues. \\
+\textbf{Associated Use Cases:}
+\begin{itemize}
+\item Type1: Actuation of Traffic Light Changes
+\end{itemize}
 
-    \item \textbf{Public Notification System:}  
-    Real-time alerts must inform commuters of route modifications and alternative travel options.
+\item \textbf{FR9: Comprehensive Logging} \\
+All actions, decisions, and applied changes must be comprehensively logged with timestamps, intersections affected, and rationale for auditing purposes and transparency. \\
+\textbf{Associated Use Cases:}
+\begin{itemize}
+\item Type1: Actuation of Traffic Light Changes
+\end{itemize}
 
-    \item \textbf{Traffic Recovery and Analysis:}  
-    The system must ensure post-event normalization and continuous refinement of optimization strategies.
+\item \textbf{FR10: Citizen Notification and Engagement} \\
+The system must distribute clear, timely, and actionable notifications through multiple digital platforms, engaging citizens effectively. \\
+\textbf{Associated Use Cases:}
+\begin{itemize}
+\item Type1: Actuation of Traffic Light Changes
+\item Type2: Review and Apply Changes
+\item Type3: Public Engagement and Notification
+\end{itemize}
+
+\item \textbf{FR11: Feedback Loop and Effectiveness Analysis} \\
+The system must track citizen interaction with notifications, capturing feedback to refine future communication strategies. \\
+\textbf{Associated Use Cases:}
+\begin{itemize}
+\item Type3: Public Engagement and Notification
+\end{itemize}
 \end{itemize}
 
 
