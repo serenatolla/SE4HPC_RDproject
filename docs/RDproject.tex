@@ -133,11 +133,7 @@ Actuation of Traffic Light Changes & Once a decision is made, the system dispatc
     \item Traffic Sensors  fully operational
     \item The event bus system is reliable and timely \\
 \end{itemize}
-\textbf{Requirements}: 
-\begin{itemize}
-    \item Continuous collection real-time sensor  data at intersections (FR1)
-    \item Data collection must be accurate and timely (FR2)
-\end{itemize} 
+\textbf{Requirements}: FR1, FR2 (See Functional Requirements section)
 
 \subsubsection*{Use Case 2: Dynamic Light Adjustment Decision}
 \textbf{Primary Actors}: Traffic Management System \\
@@ -153,11 +149,7 @@ Actuation of Traffic Light Changes & Once a decision is made, the system dispatc
     \item Accuracy and Reliability of pre-defined thresholds and adaptive algorithm
     \item Real-time processing capabilities exist within the system
 \end{itemize} 
-\textbf{Requirements}: 
-\begin{itemize}
-    \item Autonomous detection of traffic imbalances (FR1)
-    \item Clear documentation of each decision and its justification (FR2)
-\end{itemize}
+\textbf{Requirements}: FR3
 
 \subsubsection*{Use Case 3: Actuation of Traffic Light Changes}
 \textbf{Primary Actors}: Traffic Management System \\
@@ -173,11 +165,7 @@ Actuation of Traffic Light Changes & Once a decision is made, the system dispatc
 \begin{itemize}
     \item Reliability and uninterrupted communication between the management system and traffic controllers.
 \end{itemize}
-\textbf{Requirements}: 
-\begin{itemize}
-    \item Autonomous dispatching and immediate application of new traffic timings (FR1)
-    \item Comprehensive logging of every applied change for auditing (FR2) 
-\end{itemize}
+\textbf{Requirements}: FR3, FR8, FR9, FR10
 
 \newpage
 
@@ -211,12 +199,7 @@ Review and Apply Changes & Urban area managers review and approve or reject syst
 \begin{itemize}
     \item Traffic sensors and Public Transport Microservice always working with enough storage.
 \end{itemize}
-\textbf{Requirements}: 
-\begin{itemize}
-    \item The system shall collect real-time data from city-wide traffic sensor and public transport microservice (FR1)
-    \item The Sensors must produce reliable data and usable data for Traffic Management System (FR2)
-    \item The system shall store and document all data elaborating results internally for subsequent use (FR3).
-\end{itemize}
+\textbf{Requirements}: FR1, FR2
 
 \subsubsection*{Use Case 2: Suggest Optimizations}
 \textbf{Primary Actors}: Traffic Management System \\
@@ -236,11 +219,7 @@ Review and Apply Changes & Urban area managers review and approve or reject syst
     \item Data provided by the sensors are ready to be used
     \item Traffic Management System provides optimization report for Urban Area Manager.
 \end{itemize}
-\textbf{Requirements}: 
-\begin{itemize}
-    \item The system shall generate optimization recommendations (FR1)
-    \item The Optimization Engine shall present clearly readable and actionable optimization recommendations to the Urban Area Manager through a dedicated management dashboard interface (FR2).
-\end{itemize}
+\textbf{Requirements}: FR4
 
 \subsubsection*{Use Case 3: Review and Apply Changes}
 \textbf{Primary Actors}: Urban Area Manager \\
@@ -260,11 +239,7 @@ Review and Apply Changes & Urban area managers review and approve or reject syst
 \begin{itemize}
     \item The User App and city map services are operational and capable of real-time updates.
 \end{itemize}
-\textbf{Requirements}: 
-\begin{itemize}
-    \item The system shall enable Urban Area Managers to approve or reject individual optimization suggestions explicitly. (FR1)
-    \item The system shall promptly update official city maps and the User App to reflect all implemented changes. (FR2)
-\end{itemize} 
+\textbf{Requirements}: FR5, FR10
 
 \newpage
 
@@ -301,12 +276,7 @@ Public Engagement and Notification & Citizens are informed through mobile apps a
     \item Event Monitoring System continuously provides real-time updates on planned city events.
     \item Historical traffic data is available and reliable for prediction accuracy.
 \end{itemize}
-\textbf{Requirements}:
-\begin{itemize}
-    \item The system must retrieve the details of the events in real time. (FR1)
-    \item AI models must generate reliable congestion forecasts based on historical and live data. (FR2)
-    \item Events must be categorized by traffic impact to ensure strategic decision-making. (FR3)
-\end{itemize}
+\textbf{Requirements}: FR2, FR6
 
 \subsubsection*{Use Case 2: Dynamic Mobility Adaptation}
 \textbf{Primary Actors}: Traffic Management System \\
@@ -324,12 +294,7 @@ Public Engagement and Notification & Citizens are informed through mobile apps a
     \item Traffic controllers are capable of receiving and implementing adaptive changes in near-real time.
     \item Commuters actively engage with public notifications to adjust their travel plans accordingly.
 \end{itemize}
-\textbf{Requirements}:
-\begin{itemize}
-    \item System must autonomously generate traffic adaptation recommendations. (FR1)
-    \item Public transport schedules must be dynamically adjusted to accommodate demand shifts. (FR2)
-    \item Road modifications must be communicated in real time through digital channels. (FR3)
-\end{itemize}
+\textbf{Requirements}: FR3, FR7
 
 \subsubsection*{Use Case 3: Public Engagement and Notification}
 \textbf{Primary Actors}: Notification System \\
@@ -347,12 +312,7 @@ Public Engagement and Notification & Citizens are informed through mobile apps a
     \item Citizens actively use digital mobility platforms to stay informed.
     \item Public dashboards and apps are capable of delivering real-time updates.
 \end{itemize}
-\textbf{Requirements}:
-\begin{itemize}
-    \item System must distribute event-driven alerts through multiple communication platforms. (FR1)
-    \item Notifications must be clear, timely, and actionable. (FR2)
-    \item Public feedback must be captured and analyzed to refine notification effectiveness. (FR3)
-\end{itemize}
+\textbf{Requirements}: FR10, FR11
 
 \newpage
 
