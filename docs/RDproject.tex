@@ -142,7 +142,7 @@ Actuation of Traffic Light Changes & Once a decision is made, the system dispatc
 \begin{enumerate}
     \item \textit{Evaluate Traffic Conditions} Traffic Management System evaluates received sensor data to identify congestion or imbalance between intersecting roads.
     \item \textit{Decision Making} Based on predefined thresholds and adaptive algorithms, the system autonomously decides if traffic light timing adjustments are necessary.
-    \item \textit{Prepare Adjustment Instructions} System formulates the specific adjustment parameters (timing alterations) required for each affected intersection.
+    \item \textit{Prepare Adjustment Instructions} System formulates the specific adjustment parameters required for each affected intersection.
 \end{enumerate}
 \textbf{Assumptions}: 
 \begin{itemize}
@@ -191,7 +191,7 @@ Review and Apply Changes & Urban area managers review and approve or reject syst
 \textbf{Supporting Actors}: Traffic Management System \\ 
 \textbf{Use case flow}: 
 \begin{enumerate}
-    \item \textit{Collect Data} Traffic sensors continuously measure the number of seconds vehicles take to cross intersections and periodically publish this data on the event bus.
+    \item \textit{Collect Data} Traffic sensors and Public transport microservice continuously measure the traffic and public transport conditions and constantly publish this data on the event bus.
     \item \textit{Process Traffic Data} The system processes incoming sensor data, filtering out anomalies and organizing it into usable information.
     \item \textit{Store Analysis Results} The data collected are stored internally for use by the Optimization Engine. The data provided must be usable for the Traffic Management System.
 \end{enumerate}
@@ -222,12 +222,12 @@ Review and Apply Changes & Urban area managers review and approve or reject syst
 \textbf{Requirements}: FR4
 
 \subsubsection*{Use Case 3: Review and Apply Changes}
-\textbf{Primary Actors}: Urban Area Manager \\
+\textbf{Primary Actors}: Urban Area Manager, City Planners \\
 \textbf{Supporting Actors}: Traffic Management System \\ 
 \textbf{Use case flow}: 
 \begin{enumerate}
     \item \textit{Access Optimization Recommendations} Urban Area Manager accesses the optimization suggestions presented by the Optimization Engine via the Management Dashboard.
-    \item \textit{Review Optimization Suggestions} Manager evaluates each optimization suggestion carefully, considering feasibility, expected benefits, potential impact, and citizen feedback previously received.
+    \item \textit{Review Optimization Suggestions} Manager and City Planners evaluates each optimization suggestion carefully, considering feasibility, expected benefits, potential impact, and citizen feedback previously received.
     \item \textit{Approve or Reject Suggestions} Manager decides whether to approve or reject each suggestion individually.
     \Item \textit{Implement Approved Changes} For each approved optimization, road direction changes are physically implemented and updated in traffic signs.
     Public transit schedules are updated and communicated to the Public Transport Microservice.
