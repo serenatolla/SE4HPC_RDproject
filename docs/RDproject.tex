@@ -229,7 +229,7 @@ Review and Apply Changes & Urban area managers review and approve or reject syst
     \item \textit{Access Optimization Recommendations} Urban Area Manager accesses the optimization suggestions presented by the Optimization Engine via the Management Dashboard.
     \item \textit{Review Optimization Suggestions} Manager and City Planners evaluates each optimization suggestion carefully, considering feasibility, expected benefits, potential impact, and citizen feedback previously received.
     \item \textit{Approve or Reject Suggestions} Manager decides whether to approve or reject each suggestion individually.
-    \Item \textit{Implement Approved Changes} For each approved optimization, road direction changes are physically implemented and updated in traffic signs.
+    \item \textit{Implement Approved Changes} For each approved optimization, road direction changes are physically implemented and updated in traffic signs.
     Public transit schedules are updated and communicated to the Public Transport Microservice.
     \item \textit{Update City Maps and User App} All implemented changes are reflected promptly in: Official city maps.
     The User App, ensures citizens are immediately informed about modifications.
@@ -453,6 +453,35 @@ These constraints or conditions influence how the system performs its functions:
 This section outlines the architecture, sequence diagrams, key design decisions, and critical points relevant to event-driven urban mobility adaptations.
 
 \subsection{Architectural Overview}
+\subsection*{Preexisting Components}
+The system rely on already available components that will be integrated with thw software system, these components
+are crucial for the project realization.   
+\begin{itemize}
+    \item \textbf{Sensors} - Event-based infrastructure that measure the time needed for a car to cross an intersection. 
+    \item \textbf{PTScheduleMicroservice} - This microservice offer two operations regarding the public transport schedules:   
+        \begin{itemize}
+            \item getScheduleByStreet: Given the name of a street, it returns the timetable of all
+            stops present on that street.
+            \item getScheduleByLine: Given the number of a specific line, it returns the complete
+            timetable for that line.
+        \end{itemize}
+    \item \textbf{NewsChannel} - A component that transmits the news about the events in the city. 
+\end{itemize}
+
+\subsection*{Type1}
+\begin{itemize}
+    \item \textbf{TrafficLightsActuator} - Component that act on the traffic lights modifying their durations dynamically, also return all action actuated.
+    \item \textbf{TrafficAnalyzer} - Same as type 3?.
+    \item \textbf{NotificationService} - .
+\end{itemize}
+
+\subsection*{Type2}
+\begin{itemize}
+    \item \textbf{TrafficOptimizationEngine} - Component that is in charge of identify roads,traffic lights and public transport optimizations .
+    \item \textbf{NotificationService} - .
+\end{itemize}
+
+
 \subsection*{Type3}
 The system follows a modular architecture, ensuring real-time adaptability to traffic disruptions caused by large-scale events.
 \begin{itemize}
