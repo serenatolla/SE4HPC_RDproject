@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" version="26.2.13">
+  <diagram name="Page-1" id="ibu99fPp9KxYhB7ixfYQ">
+    <mxGraphModel dx="1126" dy="649" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pyVLi6cXudV4RQC-1F0G-1" value="PTSchedule Microservice&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="10" y="250" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="pyVLi6cXudV4RQC-1F0G-2" value="Sensors" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="180" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="pyVLi6cXudV4RQC-1F0G-3" value="NewsChannel" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="80" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="pyVLi6cXudV4RQC-1F0G-5" value="SustainCity" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="290" y="30" width="650" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="pyVLi6cXudV4RQC-1F0G-6" value="TrafficLightActuator" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="270" width="136" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="pyVLi6cXudV4RQC-1F0G-7" value="TrafficAnalyzer" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="160" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pyVLi6cXudV4RQC-1F0G-8" value="NotiicationService" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="60" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="pyVLi6cXudV4RQC-1F0G-9" value="TrafficOptimizationEngine" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="270" width="210" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="pyVLi6cXudV4RQC-1F0G-10" value="EventCollector" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="65" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pyVLi6cXudV4RQC-1F0G-11" value="ApprovalModule" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="175" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="pyVLi6cXudV4RQC-1F0G-12" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="110" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pyVLi6cXudV4RQC-1F0G-13" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="210" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pyVLi6cXudV4RQC-1F0G-14" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="300" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pyVLi6cXudV4RQC-1F0G-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="pyVLi6cXudV4RQC-1F0G-14" target="pyVLi6cXudV4RQC-1F0G-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pyVLi6cXudV4RQC-1F0G-19" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="285" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pyVLi6cXudV4RQC-1F0G-20" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="75" width="20" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
