@@ -292,7 +292,7 @@ Review and Apply Changes & Urban area managers review and approve or reject syst
     \caption{Use Case 3 Diagram, Review and Apply Changes}
     \label{fig:Review_and_Apply_Changes.drawio}
 \end{figure}
-\\
+
 
 \newpage
 
@@ -391,7 +391,7 @@ Public Engagement and Notification & Citizens are informed through mobile apps a
     \caption{Use Case 3 Diagram, Public Engagement and Notification}
     \label{fig:Public_Engagement_and_Notification.drawio}
 \end{figure}
-\\
+
 
 \newpage
 
@@ -547,29 +547,26 @@ are crucial for the project realization.
     \item \textbf{NewsChannel} - A component that transmits the news about the events in the city. 
 \end{itemize}
 
-\subsection*{Type1}
+\subsection*{SustainCity Components}
+These components where developed with the purpose of the project, the design aim to resolve the addressed problems with a light architecture making future improvements and maintenance easier.  
 \begin{itemize}
-    \item \textbf{TrafficLightsActuator} - Component that act on the traffic lights modifying their durations dynamically, also return all action actuated.
-    \item \textbf{TrafficAnalyzer} - Same as type 3?.
-    \item \textbf{NotificationService} - .
+    \item \textbf{TrafficLightsActuator} - Component that act on the traffic lights modifying their durations dynamically, also return all action actuated to the NotificationService component.
+    \item \textbf{TrafficAnalyzer} - Main component of the project, processes congestion data, predicts affected areas,
+    and identifies high-impact road segments.
+    Based on sensors data decide how the TrafficLightsActuator component has to behave.
+    It also give all the aggregate data to the TrafficOptimizationEngine and ConfigurationGenerator component.
+    \item \textbf{TrafficOptimizationEngine} - Component that is in charge of identify roads,traffic lights and public transport optimizations from the aggregate data retrieved from the TrafficAnalyzer components. 
+    \item \textbf{ConfigurationGenerator} - Computes traffic adaptations, including signal adjustments, lane closures, and reroutes. It takes data already formatted by the TrafficAnalyzer and publish the results on the ApprovalModule.
+    \item \textbf{ApprovalModule} - Validates proposed modifications for both traffic optimizations and event-specific configuration. Its task is to communicate with the urban area managers about these topics and give a detailed report to the NotificationService module. 
+    \item \textbf{NotificationService} - Module dedicated to publish the informations taken by the system to the citizens.
 \end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{diagrams/ComponentDiagram1.pdf}
+    \caption{Component Diagram}
+    \label{fig:Public_Engagement_and_Notification.drawio}
+\end{figure}
 
-\subsection*{Type2}
-\begin{itemize}
-    \item \textbf{TrafficOptimizationEngine} - Component that is in charge of identify roads,traffic lights and public transport optimizations .
-    \item \textbf{NotificationService} - .
-\end{itemize}
-
-
-\subsection*{Type3}
-The system follows a modular architecture, ensuring real-time adaptability to traffic disruptions caused by large-scale events.
-\begin{itemize}
-    \item \textbf{EventCollector} - Continuously monitors and retrieves official event data from external sources.
-    \item \textbf{TrafficAnalyzer} - Processes congestion data, predicts affected areas, and identifies high-impact road segments.
-    \item \textbf{ConfigurationGenerator} - Computes traffic adaptations, including signal adjustments, lane closures, and reroutes.
-    \item \textbf{ApprovalModule} - Validates proposed modifications before execution by urban authorities.
-    \item \textbf{NotificationService} - Publishes updates informing citizens about road closures, alternative routes, and adjusted transit schedules.
-\end{itemize}
 
 \newpage
 
@@ -600,8 +597,10 @@ To ensure efficient operation, the system follows three main interaction sequenc
 \newpage
 
 \subsection{Critical points and design decisions}
-\subsection*{Type3 - design decisions:}
+\subsection*{TODO - design decisions:}
 \begin{itemize}
+    \item TrafficOptimizationEngine take data only from TrafficAnalyzer, the latter has the logic to encapsulate the right data while the optimizationEngine is only a compunting component that expect data in a particular format
+
     \item Event-Driven Optimization --> Unlike Type 2 actions (which focus on routine traffic improvements), Type 3 actions react dynamically to event-based disruptions.
     \item Approval Workflow --> Ensures human oversight before implementing major transport reconfigurations.
     \item Public Engagement -->  Structured communication channels provide real-time notifications to affected commuters.
