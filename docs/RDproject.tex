@@ -552,7 +552,7 @@ These components where developed with the purpose of the project, the design aim
 \begin{itemize}
     \item \textbf{TrafficLightsActuator} - Component that act on the traffic lights modifying their durations dynamically, also return all action actuated to the NotificationService component.
     \item \textbf{TrafficAnalyzer} - Main component of the project, processes congestion data, predicts affected areas,
-    and identifies high-impact road segments.
+    and identifies high-impact road segments, has always a defined knowledge about the entire urban situation.
     Based on sensors data decide how the TrafficLightsActuator component has to behave.
     It also give all the aggregate data to the TrafficOptimizationEngine and ConfigurationGenerator component.
     \item \textbf{TrafficOptimizationEngine} - Component that is in charge of identify roads,traffic lights and public transport optimizations from the aggregate data retrieved from the TrafficAnalyzer components. 
@@ -572,8 +572,9 @@ These components where developed with the purpose of the project, the design aim
 \newpage
 
 \subsection{Sequence Diagrams}
-\subsection*{Traffic Light Sequence Diagram}
-First sequence diagram
+TODO
+\subsubsection{Traffic Light Sequence Diagram}
+First sequence diagram TODO
 \begin{figure}[h]
     \centering
     \includegraphics[width=1.1\textwidth]{diagrams/SequenceDiagram1.pdf}
@@ -582,8 +583,8 @@ First sequence diagram
 \end{figure}
 
 \newpage
-\subsection*{Traffic optimization Sequence Diagram}
-Second sequence diagram
+\subsubsection{Traffic optimization Sequence Diagram}
+Second sequence diagram TODO
 \begin{figure}[h]
     \centering
     \includegraphics[width=1.1\textwidth]{diagrams/SequenceDiagram2.pdf}
@@ -591,28 +592,25 @@ Second sequence diagram
     \label{fig:SeqDiag2.drawio}
 \end{figure}
 
-\subsection*{Type3}
-To ensure efficient operation, the system follows three main interaction sequences:
-
-\begin{enumerate}
-    \item {Event Reception}
-    \begin{itemize}
-        \item Event Collector detects an upcoming event.
-        \item Event data is retrieved and logged in the system.
-        \item TrafficAnalyzer prepares preliminary impact forecasts.
-    \end{itemize}
-    \item {Traffic Analysis and Configuration Generation}
-    \begin{itemize}
-        \item TrafficAnalyzer retrieves real-time congestion data.
-        \item ConfigurationGenerator formulates optimized traffic control measures (e.g., signal adjustments, reroutes).
-        \item The configurations are prepared for validation.
-    \end{itemize}
-    \item {Approval and Public Notification}
-    \begin{itemize}
-        \item The Urban Manager reviews proposed adjustments and approves the changes.
-        \item NotificationService informs citizens of road closures, signal modifications, and public transport reroutes.
-    \end{itemize}
-\end{enumerate}
+\subsubsection{Event-based configurations Sequence Diagram}
+Sequence diagram for event-specific improvements to the urban area, very similar to the type 2 diagrams since the incapsulated logic
+is the same.
+\newline Here the TrafficAnalyzer have the same connections with PTScheduleMicroservice and Sensors Bus, but for redundancy reasons as been hide.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.1\textwidth]{diagrams/SequenceDiagram3.pdf}
+    \caption{Type 3 Sequence Diagram}
+    \label{fig:SeqDiag3.drawio}
+\end{figure}
+\newpage
+\subsubsection{NotificationService Sequence Diagram}
+TODO
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.1\textwidth]{diagrams/SequenceDiagram4.pdf}
+    \caption{NotificationService Sequence Diagram}
+    \label{fig:SeqDiag4.drawio}
+\end{figure}
 
 \newpage
 
@@ -625,7 +623,7 @@ To ensure efficient operation, the system follows three main interaction sequenc
     \item Approval Workflow --> Ensures human oversight before implementing major transport reconfigurations.
     \item Public Engagement -->  Structured communication channels provide real-time notifications to affected commuters.
 \end{itemize}
-\subsection*{Type3 - critical aspects:}
+\subsection*{TODO - critical aspects:}
 \begin{itemize}
     \item Event Data Accuracy --> Must ensure data reliability from official event sources.
     \item Traffic Simulation Limitations --> Forecasting congestion trends must balance real-time responsiveness and computational efficiency.
