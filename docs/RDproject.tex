@@ -557,12 +557,13 @@ These components where developed with the purpose of the project, the design aim
     It also give all the aggregate data to the TrafficOptimizationEngine and ConfigurationGenerator component.
     \item \textbf{TrafficOptimizationEngine} - Component that is in charge of identify roads,traffic lights and public transport optimizations from the aggregate data retrieved from the TrafficAnalyzer components. 
     \item \textbf{ConfigurationGenerator} - Computes traffic adaptations, including signal adjustments, lane closures, and reroutes. It takes data already formatted by the TrafficAnalyzer and publish the results on the ApprovalModule.
-    \item \textbf{ApprovalModule} - Validates proposed modifications for both traffic optimizations and event-specific configuration. Its task is to communicate with the urban area managers about these topics and give a detailed report to the NotificationService module. 
+    \item \textbf{ApprovalModule} - Validates proposed modifications for both traffic optimizations and event-specific configuration. 
+    \newline Its task is to communicate with the urban area managers about these topics and give a detailed report to the NotificationService module. 
     \item \textbf{NotificationService} - Module dedicated to publish the informations taken by the system to the citizens.
 \end{itemize}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{diagrams/ComponentDiagram1.pdf}
+    \includegraphics[width=1.1\textwidth]{diagrams/ComponentDiagram1.pdf}
     \caption{Component Diagram}
     \label{fig:ComponentDiagram.drawio}
 \end{figure}
@@ -575,11 +576,20 @@ These components where developed with the purpose of the project, the design aim
 First sequence diagram
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{diagrams/SequenceDiagram1.pdf}
+    \includegraphics[width=1.1\textwidth]{diagrams/SequenceDiagram1.pdf}
     \caption{Type 1 Sequence Diagram}
     \label{fig:SeqDiag1.drawio}
 \end{figure}
 
+\newpage
+\subsection*{Traffic optimization Sequence Diagram}
+Second sequence diagram
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.1\textwidth]{diagrams/SequenceDiagram2.pdf}
+    \caption{Type 2 Sequence Diagram}
+    \label{fig:SeqDiag2.drawio}
+\end{figure}
 
 \subsection*{Type3}
 To ensure efficient operation, the system follows three main interaction sequences:
