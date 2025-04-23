@@ -572,9 +572,14 @@ These components where developed with the purpose of the project, the design aim
 \newpage
 
 \subsection{Sequence Diagrams}
-TODO
+In this section, we describe the sequence diagrams that visually represent the interactions and flow of events for the system’s key functionalities. 
+These diagrams help illustrate how the system components collaborate to handle various use cases and scenarios.
+
 \subsubsection{Traffic Light Sequence Diagram}
-First sequence diagram TODO
+The \textbf{Traffic Light Sequence Diagram} shows how the system manages traffic lights in real time. 
+\newline Sensors send new traffic data, and the \textit{TrafficAnalyzer} checks if changes are needed. If yes, it sends instructions to the \textit{TrafficLightActuator}, which updates the lights. 
+The change is then confirmed and logged by the \textit{NotificationService}, which also prepares a traffic report.
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=1.1\textwidth]{diagrams/SequenceDiagram1.pdf}
@@ -584,7 +589,9 @@ First sequence diagram TODO
 
 \newpage
 \subsubsection{Traffic optimization Sequence Diagram}
-Second sequence diagram TODO
+The \textbf{Traffic Optimization Sequence Diagram} shows how the system uses traffic data to suggest improvements. 
+\newline The \textit{TrafficAnalyzer} collects data and transport schedules, then sends them to the \textit{OptimizationEngine}, which creates suggestions. 
+These are reviewed by \textit{Urban Area Managers} through the \textit{ApprovalModule}. The final decisions are logged and shared by the \textit{NotificationService}.
 \begin{figure}[h]
     \centering
     \includegraphics[width=1.1\textwidth]{diagrams/SequenceDiagram2.pdf}
@@ -595,7 +602,7 @@ Second sequence diagram TODO
 \subsubsection{Event-based configurations Sequence Diagram}
 Sequence diagram for event-specific improvements to the urban area, very similar to the type 2 diagrams since the incapsulated logic
 is the same.
-\newline Here the TrafficAnalyzer have the same connections with PTScheduleMicroservice and Sensors Bus, but for redundancy reasons as been hide.
+\newline Here the \textit{TrafficAnalyzer} has the same connections with \textit{PTScheduleMicroservice and Sensors Bus}, but for redundancy reasons as been hide.
 \begin{figure}[h]
     \centering
     \includegraphics[width=1.1\textwidth]{diagrams/SequenceDiagram3.pdf}

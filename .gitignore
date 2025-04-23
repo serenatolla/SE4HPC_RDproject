@@ -4,3 +4,4 @@
 /docs/*.f*
 /docs/*.sync*
 /docs/*.toc
+.DS_Store
