@@ -625,11 +625,17 @@ These reports are then made available on the \textit{Public Website} as required
 
 \subsection{Critical points and design decisions}
 \subsection*{Design decisions:}
+The main component of this project is the TrafficAnalyzer module, by our design this module is the one in charge of retrieve the data 
+about the urban area from outside and create a complex state with all these information.
+This component will then provide the right data specifically formatted for other modules such as TrafficOptimizationEngine, ConfigurationGenerator and TrafficLightActuator, this choice is for 
+allowing modularity and maintainability, so in case of a modification on the sensors or microservices output data the only component to be updated will be the
+TrafficAnalyzer.
+\newline Other design choice are:
 \begin{itemize}
-    \item TrafficOptimizationEngine received data only from TrafficAnalyzer, the latter has the logic to encapsulate the right data while the optimizationEngine is only a compunting component that expect data in a particular format.
+    \item TrafficOptimizationEngine receive data only from TrafficAnalyzer, the latter has the logic to encapsulate the right data while the optimizationEngine is only a compunting component that expect data in a particular format.
     \item Event-Driven Optimization: Unlike Type 2 actions (which focus on routine traffic improvements), Type 3 actions react dynamically to event-based disruptions.
-    \item Approval Workflow: Ensures human oversight before implementing major transport reconfigurations.
-    \item Public Engagement: Structured communication channels provide real-time notifications to affected commuters.
+    \item Approval Workflow: Ensures human oversight before implementing major transport reconfigurations, the ApprovalModule in particular can have some human workforce in order to keep the communication with the Urban Area Managers smooth.
+    \item Public Engagement: Structured communication channels provide real-time notifications to affected commuters, as an example the channel was a public website, this component can be modified based on the administration choice.
 \end{itemize}
 \subsection*{Critical aspects:}
 \begin{itemize}
