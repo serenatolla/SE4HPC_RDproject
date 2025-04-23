@@ -105,7 +105,7 @@ Let's begin by examining the \textit{human actors} involved in this system first
 The following use cases describe how the system interacts with traffic data, urban managers, and external events to achieve its objectives. Each use case type corresponds to a specific level of system autonomy and decision-making: Type1 actions are fully automated, Type2 involve semi-automated analysis with human validation, and Type3 relate to exceptional or event-driven scenarios requiring coordinated interventions. The use cases are organized into tables for clarity.
 \\ We have also decided to analyze only the three most important use cases for each type of action in order to gain a better understanding of them.
 
-\subsection*{Type1 Use Cases}
+\subsection{Type1 Use Cases}
 \begin{table}[h!]
 \centering
 \begin{tabular}{|p{4.5cm}|p{8.5cm}|}
@@ -197,7 +197,7 @@ Actuation of Traffic Light Changes & Once a decision is made, the system dispatc
 
 \newpage
 
-\subsection*{Type2 Use Cases}
+\subsection{Type2 Use Cases}
 \begin{table}[h!]
 \centering
 \begin{tabular}{|p{4.5cm}|p{8.5cm}|}
@@ -296,7 +296,7 @@ Review and Apply Changes & Urban area managers review and approve or reject syst
 
 \newpage
 
-\subsection*{Type3 Use Cases}
+\subsection{Type3 Use Cases}
 \begin{table}[h!]
 \centering
 \begin{tabular}{|p{4.5cm}|p{8.5cm}|}
@@ -611,7 +611,9 @@ is the same.
 \end{figure}
 \newpage
 \subsubsection{NotificationService Sequence Diagram}
-TODO
+The \textbf{Reporting Sequence Diagram} shows how the system generates and shares reports about traffic actions. 
+\newline It collects logs from different modules, including \textit{TrafficLightActuator} and \textit{ApprovalModule}, and processes them through the \textit{NotificationService}. Daily reports are published for Type1 actions, while yearly summaries are created for Type2 and Type3. 
+These reports are then made available on the \textit{Public Website} as required.
 \begin{figure}[h]
     \centering
     \includegraphics[width=1.1\textwidth]{diagrams/SequenceDiagram4.pdf}
@@ -622,19 +624,18 @@ TODO
 \newpage
 
 \subsection{Critical points and design decisions}
-\subsection*{TODO - design decisions:}
+\subsection*{Design decisions:}
 \begin{itemize}
-    \item TrafficOptimizationEngine take data only from TrafficAnalyzer, the latter has the logic to encapsulate the right data while the optimizationEngine is only a compunting component that expect data in a particular format
-
-    \item Event-Driven Optimization --> Unlike Type 2 actions (which focus on routine traffic improvements), Type 3 actions react dynamically to event-based disruptions.
-    \item Approval Workflow --> Ensures human oversight before implementing major transport reconfigurations.
-    \item Public Engagement -->  Structured communication channels provide real-time notifications to affected commuters.
+    \item TrafficOptimizationEngine received data only from TrafficAnalyzer, the latter has the logic to encapsulate the right data while the optimizationEngine is only a compunting component that expect data in a particular format.
+    \item Event-Driven Optimization: Unlike Type 2 actions (which focus on routine traffic improvements), Type 3 actions react dynamically to event-based disruptions.
+    \item Approval Workflow: Ensures human oversight before implementing major transport reconfigurations.
+    \item Public Engagement: Structured communication channels provide real-time notifications to affected commuters.
 \end{itemize}
-\subsection*{TODO - critical aspects:}
+\subsection*{Critical aspects:}
 \begin{itemize}
-    \item Event Data Accuracy --> Must ensure data reliability from official event sources.
-    \item Traffic Simulation Limitations --> Forecasting congestion trends must balance real-time responsiveness and computational efficiency.
-    \item Citizen Adaptability --> The effectiveness of optimizations depends on commuter engagement with system-generated notifications.
+    \item Event Data Accuracy: Must ensure data reliability from official event sources.
+    \item Traffic Simulation Limitations: Forecasting congestion trends must balance real-time responsiveness and computational efficiency.
+    \item Citizen Adaptability: The effectiveness of optimizations depends on commuter engagement with system-generated notifications.
 \end{itemize}
 
 \end{document}
